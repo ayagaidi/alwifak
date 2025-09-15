@@ -6,6 +6,8 @@ use App\Http\Requests\ProfileUpdateRequest;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
 
@@ -26,15 +28,27 @@ class ProfileController extends Controller
      */
     public function update(ProfileUpdateRequest $request): RedirectResponse
     {
-        $request->user()->fill($request->validated());
+        DB::beginTransaction();
 
-        if ($request->user()->isDirty('email')) {
-            $request->user()->email_verified_at = null;
+        try {
+            $request->user()->fill($request->validated());
+
+            if ($request->user()->isDirty('email')) {
+                $request->user()->email_verified_at = null;
+            }
+
+            $request->user()->save();
+
+            DB::commit();
+
+            return Redirect::route('profile.edit')->with('status', 'profile-updated');
+
+        } catch (\Exception $e) {
+            DB::rollBack();
+            Log::error('Profile update error: ' . $e->getMessage());
+
+            return Redirect::route('profile.edit')->with('error', 'حدث خطأ أثناء تحديث الملف الشخصي');
         }
-
-        $request->user()->save();
-
-        return Redirect::route('profile.edit')->with('status', 'profile-updated');
     }
 
     /**
@@ -46,15 +60,27 @@ class ProfileController extends Controller
             'password' => ['required', 'current_password'],
         ]);
 
-        $user = $request->user();
+        DB::beginTransaction();
 
-        Auth::logout();
+        try {
+            $user = $request->user();
 
-        $user->delete();
+            Auth::logout();
 
-        $request->session()->invalidate();
-        $request->session()->regenerateToken();
+            $user->delete();
 
-        return Redirect::to('/');
+            DB::commit();
+
+            $request->session()->invalidate();
+            $request->session()->regenerateToken();
+
+            return Redirect::to('/');
+
+        } catch (\Exception $e) {
+            DB::rollBack();
+            Log::error('Profile delete error: ' . $e->getMessage());
+
+            return Redirect::route('profile.edit')->with('error', 'حدث خطأ أثناء حذف الحساب');
+        }
     }
 }

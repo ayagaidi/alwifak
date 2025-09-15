@@ -27,5 +27,11 @@ Route::middleware('auth')->group(function () {
     Route::post('/customers', [\App\Http\Controllers\CustomerController::class, 'store'])->name('customers.store');
     Route::put('/customers/{customer}', [\App\Http\Controllers\CustomerController::class, 'update'])->name('customers.update');
     Route::delete('/customers/{customer}', [\App\Http\Controllers\CustomerController::class, 'destroy'])->name('customers.destroy');
+
+    // Service management routes
+    Route::get('/services', [\App\Http\Controllers\ServiceController::class, 'index'])->name('services.index');
+    Route::post('/services', [\App\Http\Controllers\ServiceController::class, 'store'])->name('services.store');
+    Route::put('/services/{service}', [\App\Http\Controllers\ServiceController::class, 'update'])->name('services.update');
+    Route::delete('/services/{service}', [\App\Http\Controllers\ServiceController::class, 'destroy'])->name('services.destroy');
 });
 

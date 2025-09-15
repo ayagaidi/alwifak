@@ -103,10 +103,16 @@
                     <span class="ml-3 item-text">إدارة المستخدمين</span>
                 </a>
             </li>
-             <li class="nav-item w-100">
+            <li class="nav-item w-100">
                 <a class="nav-link" href="{{ route('customers.index') }}">
                     <i class="fe fe-user fe-16"></i>
                     <span class="ml-3 item-text">إدارة العملاء</span>
+                </a>
+            </li>
+            <li class="nav-item w-100">
+                <a class="nav-link" href="{{ route('services.index') }}">
+                    <i class="fe fe-briefcase fe-16"></i>
+                    <span class="ml-3 item-text">إدارة الخدمات</span>
                 </a>
             </li>
 
