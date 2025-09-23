@@ -45,5 +45,11 @@ Route::middleware('auth')->group(function () {
     Route::post('/partners', [\App\Http\Controllers\PartnerController::class, 'store'])->name('partners.store');
     Route::put('/partners/{partner}', [\App\Http\Controllers\PartnerController::class, 'update'])->name('partners.update');
     Route::delete('/partners/{partner}', [\App\Http\Controllers\PartnerController::class, 'destroy'])->name('partners.destroy');
+
+    // Contact management routes
+    Route::get('/contacts', [\App\Http\Controllers\ContactController::class, 'index'])->name('contacts.index');
+    Route::post('/contacts', [\App\Http\Controllers\ContactController::class, 'store'])->name('contacts.store');
+    Route::put('/contacts/{contact}', [\App\Http\Controllers\ContactController::class, 'update'])->name('contacts.update');
+    Route::delete('/contacts/{contact}', [\App\Http\Controllers\ContactController::class, 'destroy'])->name('contacts.destroy');
 });
 
