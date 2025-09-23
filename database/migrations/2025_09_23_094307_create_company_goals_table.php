@@ -15,7 +15,9 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->text('description')->nullable();
-            $table->enum('status', ['active', 'completed', 'cancelled'])->default('active');
+
+            $table->string('title_en');
+            $table->text('description_en')->nullable();
             $table->timestamps();
         });
     }

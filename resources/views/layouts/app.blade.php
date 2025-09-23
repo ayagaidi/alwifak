@@ -121,6 +121,12 @@
                     <span class="ml-3 item-text">أهداف الشركة</span>
                 </a>
             </li>
+            <li class="nav-item w-100">
+                <a class="nav-link" href="{{ route('partners.index') }}">
+                    <i class="fe fe-user fe-16"></i>
+                    <span class="ml-3 item-text">إدارة الشركاء</span>
+                </a>
+            </li>
 
             <li class="nav-item w-100">
                 <a class="nav-link" href="#">

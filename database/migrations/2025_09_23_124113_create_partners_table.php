@@ -11,8 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('company_goals', function (Blueprint $table) {
-            $table->dropColumn('status');
+        Schema::create('partners', function (Blueprint $table) {
+            $table->id();
+            $table->string('name_ar');
+            $table->string('name_en');
+            $table->string('image')->nullable();
+            $table->string('link')->nullable();
+            $table->timestamps();
         });
     }
 
@@ -21,8 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('company_goals', function (Blueprint $table) {
-            $table->enum('status', ['active', 'completed', 'cancelled'])->default('active');
-        });
+        Schema::dropIfExists('partners');
     }
 };

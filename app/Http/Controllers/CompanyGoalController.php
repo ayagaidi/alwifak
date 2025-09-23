@@ -18,7 +18,7 @@ class CompanyGoalController extends Controller
     public function index(Request $request)
     {
         if ($request->ajax()) {
-            $companyGoals = CompanyGoal::select(['id', 'title', 'description', 'created_at']);
+            $companyGoals = CompanyGoal::select(['id', 'title', 'title_en', 'description', 'description_en', 'created_at']);
 
             return DataTables::of($companyGoals)
                 ->addColumn('actions', function ($companyGoal) {
@@ -37,7 +37,9 @@ class CompanyGoalController extends Controller
     {
         $request->validate([
             'title' => 'required|string|max:255',
+            'title_en' => 'required|string|max:255',
             'description' => 'nullable|string|max:1000',
+            'description_en' => 'nullable|string|max:1000',
         ]);
 
         DB::beginTransaction();
@@ -45,7 +47,9 @@ class CompanyGoalController extends Controller
         try {
             $companyGoal = CompanyGoal::create([
                 'title' => $request->title,
+                'title_en' => $request->title_en,
                 'description' => $request->description,
+                'description_en' => $request->description_en,
             ]);
 
             DB::commit();
@@ -71,7 +75,9 @@ class CompanyGoalController extends Controller
     {
         $request->validate([
             'title' => 'required|string|max:255',
+            'title_en' => 'required|string|max:255',
             'description' => 'nullable|string|max:1000',
+            'description_en' => 'nullable|string|max:1000',
         ]);
 
         DB::beginTransaction();
@@ -79,7 +85,9 @@ class CompanyGoalController extends Controller
         try {
             $companyGoal->update([
                 'title' => $request->title,
+                'title_en' => $request->title_en,
                 'description' => $request->description,
+                'description_en' => $request->description_en,
             ]);
 
             DB::commit();

@@ -39,5 +39,11 @@ Route::middleware('auth')->group(function () {
     Route::post('/company-goals', [\App\Http\Controllers\CompanyGoalController::class, 'store'])->name('company-goals.store');
     Route::put('/company-goals/{companyGoal}', [\App\Http\Controllers\CompanyGoalController::class, 'update'])->name('company-goals.update');
     Route::delete('/company-goals/{companyGoal}', [\App\Http\Controllers\CompanyGoalController::class, 'destroy'])->name('company-goals.destroy');
+
+    // Partner management routes
+    Route::get('/partners', [\App\Http\Controllers\PartnerController::class, 'index'])->name('partners.index');
+    Route::post('/partners', [\App\Http\Controllers\PartnerController::class, 'store'])->name('partners.store');
+    Route::put('/partners/{partner}', [\App\Http\Controllers\PartnerController::class, 'update'])->name('partners.update');
+    Route::delete('/partners/{partner}', [\App\Http\Controllers\PartnerController::class, 'destroy'])->name('partners.destroy');
 });
 

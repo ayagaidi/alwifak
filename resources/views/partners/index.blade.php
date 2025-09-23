@@ -5,24 +5,23 @@
     <div class="container-fluid">
         <div class="row justify-content-center">
             <div class="col-12">
-                <h2 class="h5 page-title mb-4">إدارة أهداف الشركة</h2>
+                <h2 class="h5 page-title mb-4">إدارة الشركاء</h2>
 
                 <div class="mb-3">
-                    <button id="btnAddCompanyGoal" class="btn btn-primary">
-                        إضافة هدف جديد
+                    <button id="btnAddPartner" class="btn btn-primary">
+                        إضافة شريك جديد
                     </button>
                 </div>
 
                 <div class="card shadow">
                     <div class="card-body">
-                        <table class="table table-striped table-hover" id="companyGoalsTable" style="width:100%">
+                        <table class="table table-striped table-hover" id="partnersTable" style="width:100%">
                             <thead>
                                 <tr>
-                                    <th>عنوان الهدف (عربي)</th>
-                                    <th>عنوان الهدف (إنجليزي)</th>
-                                    <th>الوصف (عربي)</th>
-                                    <th>الوصف (إنجليزي)</th>
-                                    <th>تاريخ الإنشاء</th>
+                                    <th>اسم الشريك (عربي)</th>
+                                    <th>اسم الشريك (إنجليزي)</th>
+                                    <th>الصورة</th>
+                                    <th>الرابط</th>
                                     <th>الإجراءات</th>
                                 </tr>
                             </thead>
@@ -32,34 +31,35 @@
                     </div>
                 </div>
 
-                <!-- Modal for Add/Edit Company Goal -->
-                <div class="modal fade" id="companyGoalModal" tabindex="-1" role="dialog" aria-labelledby="companyGoalModalLabel" aria-hidden="true">
+                <!-- Modal for Add/Edit Partner -->
+                <div class="modal fade" id="partnerModal" tabindex="-1" role="dialog" aria-labelledby="partnerModalLabel" aria-hidden="true">
                     <div class="modal-dialog" role="document">
-                        <form id="companyGoalForm">
+                        <form id="partnerForm" enctype="multipart/form-data">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title" id="companyGoalModalLabel">إضافة هدف</h5>
+                                    <h5 class="modal-title" id="partnerModalLabel">إضافة شريك</h5>
                                     <button type="button" class="close" data-dismiss="modal" aria-label="إغلاق">
                                         <span aria-hidden="true">&times;</span>
                                     </button>
                                 </div>
                                 <div class="modal-body">
-                                    <input type="hidden" id="companyGoalId" name="companyGoalId" value="">
+                                    <input type="hidden" id="partnerId" name="partnerId" value="">
                                     <div class="form-group">
-                                        <label for="title">عنوان الهدف (عربي)</label>
-                                        <input type="text" class="form-control" id="title" name="title" required>
+                                        <label for="name_ar">اسم الشريك (عربي)</label>
+                                        <input type="text" class="form-control" id="name_ar" name="name_ar" required>
                                     </div>
                                     <div class="form-group">
-                                        <label for="title_en">عنوان الهدف (إنجليزي)</label>
-                                        <input type="text" class="form-control" id="title_en" name="title_en" required>
+                                        <label for="name_en">اسم الشريك (إنجليزي)</label>
+                                        <input type="text" class="form-control" id="name_en" name="name_en" required>
                                     </div>
                                     <div class="form-group">
-                                        <label for="description">الوصف (عربي)</label>
-                                        <textarea class="form-control" id="description" name="description" rows="3"></textarea>
+                                        <label for="image">صورة الشريك (اختياري)</label>
+                                        <input type="file" class="form-control" id="image" name="image" accept="image/*">
+                                        <small class="form-text text-muted">يُفضل صور بأبعاد 200x100 بكسل</small>
                                     </div>
                                     <div class="form-group">
-                                        <label for="description_en">الوصف (إنجليزي)</label>
-                                        <textarea class="form-control" id="description_en" name="description_en" rows="3"></textarea>
+                                        <label for="link">رابط الشريك (اختياري)</label>
+                                        <input type="url" class="form-control" id="link" name="link" placeholder="https://example.com">
                                     </div>
                                 </div>
                                 <div class="modal-footer">
@@ -85,16 +85,33 @@
 <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
 <script>
 $(document).ready(function() {
-    var table = $('#companyGoalsTable').DataTable({
+    var table = $('#partnersTable').DataTable({
         processing: true,
         serverSide: true,
-        ajax: '{{ route("company-goals.index") }}',
+        ajax: '{{ route("partners.index") }}',
         columns: [
-            { data: 'title', name: 'title' },
-            { data: 'title_en', name: 'title_en' },
-            { data: 'description', name: 'description' },
-            { data: 'description_en', name: 'description_en' },
-            { data: 'created_at', name: 'created_at' },
+            { data: 'name_ar', name: 'name_ar' },
+            { data: 'name_en', name: 'name_en' },
+            {
+                data: 'image',
+                name: 'image',
+                render: function(data, type, row) {
+                    if (data) {
+                        return '<img src="/' + data + '" alt="Partner Image" style="width: 50px; height: 30px; object-fit: cover;">';
+                    }
+                    return 'لا توجد صورة';
+                }
+            },
+            {
+                data: 'link',
+                name: 'link',
+                render: function(data, type, row) {
+                    if (data) {
+                        return '<a href="' + data + '" target="_blank" class="btn btn-sm btn-outline-primary">عرض</a>';
+                    }
+                    return 'لا يوجد رابط';
+                }
+            },
             { data: 'actions', name: 'actions', orderable: false, searchable: false }
         ],
         language: {
@@ -102,48 +119,47 @@ $(document).ready(function() {
         }
     });
 
-    // Open modal for adding company goal
-    $('#btnAddCompanyGoal').click(function() {
-        $('#companyGoalForm')[0].reset();
-        $('#companyGoalId').val('');
-        $('#companyGoalModalLabel').text('إضافة هدف');
-        $('#companyGoalModal').modal('show');
+    // Open modal for adding partner
+    $('#btnAddPartner').click(function() {
+        $('#partnerForm')[0].reset();
+        $('#partnerId').val('');
+        $('#partnerModalLabel').text('إضافة شريك');
+        $('#partnerModal').modal('show');
     });
 
-    // Open modal for editing company goal
-    $('#companyGoalsTable').on('click', '.btn-edit', function() {
-        var companyGoalId = $(this).data('company-goal-id');
+    // Open modal for editing partner
+    $('#partnersTable').on('click', '.btn-edit', function() {
+        var partnerId = $(this).data('partner-id');
         var rowData = table.row($(this).parents('tr')).data();
 
-        $('#companyGoalForm')[0].reset();
-        $('#companyGoalId').val(companyGoalId);
-        $('#title').val(rowData.title);
-        $('#title_en').val(rowData.title_en);
-        $('#description').val(rowData.description);
-        $('#description_en').val(rowData.description_en);
-        $('#companyGoalModalLabel').text('تعديل هدف');
-        $('#companyGoalModal').modal('show');
+        $('#partnerForm')[0].reset();
+        $('#partnerId').val(partnerId);
+        $('#name_ar').val(rowData.name_ar);
+        $('#name_en').val(rowData.name_en);
+        $('#link').val(rowData.link);
+        $('#partnerModalLabel').text('تعديل شريك');
+        $('#partnerModal').modal('show');
     });
 
-    // Submit form for add/edit company goal
-    $('#companyGoalForm').submit(function(e) {
+    // Submit form for add/edit partner
+    $('#partnerForm').submit(function(e) {
         e.preventDefault();
 
-        var companyGoalId = $('#companyGoalId').val();
-        var url = companyGoalId ? '/company-goals/' + companyGoalId : '/company-goals';
-        var method = companyGoalId ? 'PUT' : 'POST';
+        var partnerId = $('#partnerId').val();
+        var url = partnerId ? '/partners/' + partnerId : '/partners';
+        var method = partnerId ? 'PUT' : 'POST';
 
-        var data = {
-            title: $('#title').val(),
-            title_en: $('#title_en').val(),
-            description: $('#description').val(),
-            description_en: $('#description_en').val(),
-        };
+        var formData = new FormData(this);
+        if (partnerId) {
+            formData.append('_method', 'PUT');
+        }
 
         $.ajax({
             url: url,
             method: method,
-            data: data,
+            data: formData,
+            processData: false,
+            contentType: false,
             success: function(response) {
                 Swal.fire({
                     icon: 'success',
@@ -151,7 +167,7 @@ $(document).ready(function() {
                     text: response.message,
                 }).then(() => {
                     table.ajax.reload(null, false);
-                    $('#companyGoalModal').modal('hide');
+                    $('#partnerModal').modal('hide');
                 });
             },
             error: function(xhr) {
@@ -168,12 +184,12 @@ $(document).ready(function() {
         });
     });
 
-    // Delete company goal
-    $('#companyGoalsTable').on('click', '.btn-delete', function() {
-        var companyGoalId = $(this).data('company-goal-id');
+    // Delete partner
+    $('#partnersTable').on('click', '.btn-delete', function() {
+        var partnerId = $(this).data('partner-id');
 
         Swal.fire({
-            title: 'هل أنت متأكد من حذف الهدف؟',
+            title: 'هل أنت متأكد من حذف الشريك؟',
             icon: 'warning',
             showCancelButton: true,
             confirmButtonText: 'نعم، احذف',
@@ -181,7 +197,7 @@ $(document).ready(function() {
         }).then((result) => {
             if (result.isConfirmed) {
                 $.ajax({
-                    url: '/company-goals/' + companyGoalId,
+                    url: '/partners/' + partnerId,
                     method: 'DELETE',
                     success: function(response) {
                         Swal.fire({
