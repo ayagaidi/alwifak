@@ -16,6 +16,7 @@ class DashboardController extends Controller
             $stats = [
                 'total_users' => DB::table('users')->count(),
                 'active_sessions' => DB::table('sessions')->where('last_activity', '>', now()->subMinutes(5)->timestamp)->count(),
+                'total_company_goals' => DB::table('company_goals')->count(),
                 'recent_activities' => [], // You can populate this with actual data
             ];
 

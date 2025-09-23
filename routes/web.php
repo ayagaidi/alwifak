@@ -33,5 +33,11 @@ Route::middleware('auth')->group(function () {
     Route::post('/services', [\App\Http\Controllers\ServiceController::class, 'store'])->name('services.store');
     Route::put('/services/{service}', [\App\Http\Controllers\ServiceController::class, 'update'])->name('services.update');
     Route::delete('/services/{service}', [\App\Http\Controllers\ServiceController::class, 'destroy'])->name('services.destroy');
+
+    // Company Goal management routes
+    Route::get('/company-goals', [\App\Http\Controllers\CompanyGoalController::class, 'index'])->name('company-goals.index');
+    Route::post('/company-goals', [\App\Http\Controllers\CompanyGoalController::class, 'store'])->name('company-goals.store');
+    Route::put('/company-goals/{companyGoal}', [\App\Http\Controllers\CompanyGoalController::class, 'update'])->name('company-goals.update');
+    Route::delete('/company-goals/{companyGoal}', [\App\Http\Controllers\CompanyGoalController::class, 'destroy'])->name('company-goals.destroy');
 });
 

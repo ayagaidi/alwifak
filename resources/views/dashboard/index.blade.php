@@ -86,6 +86,10 @@
                             </div>
                         </div>
                     </div>
+
+                 
+
+
                 </div>
 
                 <!-- Recent Activities -->
@@ -116,6 +120,17 @@
                                             <div class="col">
                                                 <small><strong>تم تحديث الإعدادات</strong></small>
                                                 <div class="my-0 text-muted small">منذ 10 دقائق</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="list-group-item">
+                                        <div class="row align-items-center">
+                                            <div class="col-auto">
+                                                <span class="fe fe-target fe-16 text-muted"></span>
+                                            </div>
+                                            <div class="col">
+                                                <small><strong><a href="{{ route('company-goals.index') }}">إدارة أهداف الشركة</a></strong></small>
+                                                <div class="my-0 text-muted small">إضافة وتعديل أهداف الشركة</div>
                                             </div>
                                         </div>
                                     </div>
