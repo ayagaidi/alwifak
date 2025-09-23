@@ -133,6 +133,18 @@
                     <span class="ml-3 item-text">بيانات الاتصال</span>
                 </a>
             </li>
+            <li class="nav-item w-100">
+                <a class="nav-link" href="{{ route('testimonials.index') }}">
+                    <i class="fe fe-star fe-16"></i>
+                    <span class="ml-3 item-text">إدارة الشهادات</span>
+                </a>
+            </li>
+            <li class="nav-item w-100">
+                <a class="nav-link" href="{{ route('blogs.index') }}">
+                    <i class="fe fe-file-text fe-16"></i>
+                    <span class="ml-3 item-text">إدارة المقالات</span>
+                </a>
+            </li>
 
             <li class="nav-item w-100">
                 <a class="nav-link" href="#">
