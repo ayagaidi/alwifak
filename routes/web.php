@@ -63,5 +63,15 @@ Route::middleware('auth')->group(function () {
     Route::post('/blogs', [\App\Http\Controllers\BlogController::class, 'store'])->name('blogs.store');
     Route::put('/blogs/{blog}', [\App\Http\Controllers\BlogController::class, 'update'])->name('blogs.update');
     Route::delete('/blogs/{blog}', [\App\Http\Controllers\BlogController::class, 'destroy'])->name('blogs.destroy');
+
+    // Invoice management routes
+    Route::get('/invoices', [\App\Http\Controllers\InvoiceController::class, 'index'])->name('invoices.index');
+    Route::get('/invoices/create', [\App\Http\Controllers\InvoiceController::class, 'create'])->name('invoices.create');
+    Route::post('/invoices', [\App\Http\Controllers\InvoiceController::class, 'store'])->name('invoices.store');
+    Route::get('/invoices/{invoice}', [\App\Http\Controllers\InvoiceController::class, 'show'])->name('invoices.show');
+    Route::get('/invoices/{invoice}/edit', [\App\Http\Controllers\InvoiceController::class, 'edit'])->name('invoices.edit');
+    Route::put('/invoices/{invoice}', [\App\Http\Controllers\InvoiceController::class, 'update'])->name('invoices.update');
+    Route::delete('/invoices/{invoice}', [\App\Http\Controllers\InvoiceController::class, 'destroy'])->name('invoices.destroy');
+    Route::get('/invoices/services/list', [\App\Http\Controllers\InvoiceController::class, 'getServices'])->name('invoices.services');
 });
 

@@ -66,7 +66,6 @@
             </a>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
                 <a class="dropdown-item" href="{{ route('profile.edit') }}">الملف الشخصي</a>
-                <a class="dropdown-item" href="#">الإعدادات</a>
                 <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">تسجيل الخروج</a>
                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                     @csrf
@@ -113,6 +112,12 @@
                 <a class="nav-link" href="{{ route('services.index') }}">
                     <i class="fe fe-briefcase fe-16"></i>
                     <span class="ml-3 item-text">إدارة الخدمات</span>
+                </a>
+            </li>
+            <li class="nav-item w-100">
+                <a class="nav-link" href="{{ route('invoices.index') }}">
+                    <i class="fe fe-file-text fe-16"></i>
+                    <span class="ml-3 item-text">إدارة الفواتير</span>
                 </a>
             </li>
             <li class="nav-item w-100">
