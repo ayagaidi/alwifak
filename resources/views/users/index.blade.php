@@ -5,11 +5,11 @@
     <div class="container-fluid">
         <div class="row justify-content-center">
             <div class="col-12">
-                <h2 class="h5 page-title mb-4">إدارة المستخدمين</h2>
+                <h2 class="h5 page-title mb-4">{{ __('users.users_management') }}</h2>
 
                 <div class="mb-3">
                     <button id="btnAddUser" class="btn btn-primary">
-                        إضافة مستخدم جديد
+                        {{ __('users.add_user') }}
                     </button>
                 </div>
 
@@ -18,10 +18,10 @@
                         <table class="table table-striped table-hover" id="usersTable" style="width:100%">
                             <thead>
                                 <tr>
-                                    <th>الاسم</th>
-                                    <th>البريد الإلكتروني</th>
-                                    <th>الحالة</th>
-                                    <th>الإجراءات</th>
+                                    <th>{{ __('users.name') }}</th>
+                                    <th>{{ __('users.email') }}</th>
+                                    <th>{{ __('users.status') }}</th>
+                                    <th>{{ __('users.actions') }}</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -36,33 +36,33 @@
                         <form id="userForm">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title" id="userModalLabel">إضافة مستخدم</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="إغلاق">
+                                    <h5 class="modal-title" id="userModalLabel">{{ __('users.add_user') }}</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="{{ __('users.cancel') }}">
                                         <span aria-hidden="true">&times;</span>
                                     </button>
                                 </div>
                                 <div class="modal-body">
                                     <input type="hidden" id="userId" name="userId" value="">
                                     <div class="form-group">
-                                        <label for="name">الاسم</label>
+                                        <label for="name">{{ __('users.name') }}</label>
                                         <input type="text" class="form-control" id="name" name="name" required>
                                     </div>
                                     <div class="form-group">
-                                        <label for="email">البريد الإلكتروني</label>
+                                        <label for="email">{{ __('users.email') }}</label>
                                         <input type="email" class="form-control" id="email" name="email" required>
                                     </div>
                                     <div class="form-group password-group">
-                                        <label for="password">كلمة المرور</label>
+                                        <label for="password">{{ __('users.password') }}</label>
                                         <input type="password" class="form-control" id="password" name="password" required>
                                     </div>
                                     <div class="form-group password-group">
-                                        <label for="password_confirmation">تأكيد كلمة المرور</label>
+                                        <label for="password_confirmation">{{ __('users.confirm_password') }}</label>
                                         <input type="password" class="form-control" id="password_confirmation" name="password_confirmation" required>
                                     </div>
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">إلغاء</button>
-                                    <button type="submit" class="btn btn-primary">حفظ</button>
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">{{ __('users.cancel') }}</button>
+                                    <button type="submit" class="btn btn-primary">{{ __('users.save') }}</button>
                                 </div>
                             </div>
                         </form>
@@ -94,7 +94,7 @@ $(document).ready(function() {
             { data: 'actions', name: 'actions', orderable: false, searchable: false }
         ],
         language: {
-            url: 'ar.json'
+            url: '{{ app()->getLocale() === "ar" ? "ar.json" : "en.json" }}'
         }
     });
 
@@ -102,7 +102,7 @@ $(document).ready(function() {
     $('#btnAddUser').click(function() {
         $('#userForm')[0].reset();
         $('#userId').val('');
-        $('#userModalLabel').text('إضافة مستخدم');
+        $('#userModalLabel').text('{{ __("users.add_user") }}');
         $('.password-group').show();
         $('#userModal').modal('show');
     });
@@ -116,7 +116,7 @@ $(document).ready(function() {
         $('#userId').val(userId);
         $('#name').val(rowData.name);
         $('#email').val(rowData.email);
-        $('#userModalLabel').text('تعديل مستخدم');
+        $('#userModalLabel').text('{{ __("users.edit_user") }}');
         $('.password-group').hide();
         $('#userModal').modal('show');
     });
@@ -143,7 +143,7 @@ $(document).ready(function() {
             success: function(response) {
                 Swal.fire({
                     icon: 'success',
-                    title: 'نجاح',
+                    title: '{{ __("users.user_created") }}',
                     text: response.message,
                 }).then(() => {
                     table.ajax.reload(null, false);
@@ -151,13 +151,13 @@ $(document).ready(function() {
                 });
             },
             error: function(xhr) {
-                var errorMessage = 'حدث خطأ';
+                var errorMessage = '{{ __("users.user_not_found") }}';
                 if (xhr.responseJSON && xhr.responseJSON.message) {
                     errorMessage = xhr.responseJSON.message;
                 }
                 Swal.fire({
                     icon: 'error',
-                    title: 'خطأ',
+                    title: '{{ __("users.error") }}',
                     text: errorMessage,
                 });
             }

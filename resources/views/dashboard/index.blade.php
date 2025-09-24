@@ -9,7 +9,7 @@
             <div class="col-12">
                 <div class="row align-items-center mb-2">
                     <div class="col">
-                        <h2 class="h5 page-title">مرحباً بك في لوحة التحكم!</h2>
+                        <h2 class="h5 page-title">{{ __('dashboard.welcome') }}</h2>
                     </div>
                 </div>
 
@@ -26,7 +26,7 @@
                                         </span>
                                     </div>
                                     <div class="col pr-0">
-                                        <p class="small text-muted mb-1">إجمالي المستخدمين</p>
+                                        <p class="small text-muted mb-1">{{ __('dashboard.total_users') }}</p>
                                         <span class="h3 mb-0">{{ $stats['total_users'] ?? 0 }}</span>
                                     </div>
                                 </div>
@@ -45,7 +45,7 @@
                                         </span>
                                     </div>
                                     <div class="col pr-0">
-                                        <p class="small text-muted mb-1">إجمالي العملاء</p>
+                                        <p class="small text-muted mb-1">{{ __('dashboard.total_customers') }}</p>
                                         <span class="h3 mb-0">{{ $stats['total_customers'] ?? 0 }}</span>
                                     </div>
                                 </div>
@@ -64,7 +64,7 @@
                                         </span>
                                     </div>
                                     <div class="col pr-0">
-                                        <p class="small text-muted mb-1">إجمالي الخدمات</p>
+                                        <p class="small text-muted mb-1">{{ __('dashboard.total_services') }}</p>
                                         <span class="h3 mb-0">{{ $stats['total_services'] ?? 0 }}</span>
                                     </div>
                                 </div>
@@ -83,8 +83,8 @@
                                         </span>
                                     </div>
                                     <div class="col pr-0">
-                                        <p class="small text-muted mb-1">إجمالي الإيرادات</p>
-                                        <span class="h3 mb-0">{{ number_format($stats['total_revenue'] ?? 0, 2) }} ر.س</span>
+                                        <p class="small text-muted mb-1">{{ __('dashboard.total_revenue') }}</p>
+                                        <span class="h3 mb-0">{{ number_format($stats['total_revenue'] ?? 0, 2) }} {{ __('dashboard.currency') }}</span>
                                     </div>
                                 </div>
                             </div>
@@ -102,7 +102,7 @@
                                         </span>
                                     </div>
                                     <div class="col pr-0">
-                                        <p class="small text-muted mb-1">إجمالي الفواتير</p>
+                                        <p class="small text-muted mb-1">{{ __('dashboard.total_invoices') }}</p>
                                         <span class="h3 mb-0">{{ $stats['total_invoices'] ?? 0 }}</span>
                                     </div>
                                 </div>
@@ -121,7 +121,7 @@
                                         </span>
                                     </div>
                                     <div class="col pr-0">
-                                        <p class="small text-muted mb-1">فواتير مدفوعة</p>
+                                        <p class="small text-muted mb-1">{{ __('dashboard.paid_invoices') }}</p>
                                         <span class="h3 mb-0">{{ $stats['paid_invoices'] ?? 0 }}</span>
                                     </div>
                                 </div>
@@ -140,7 +140,7 @@
                                         </span>
                                     </div>
                                     <div class="col pr-0">
-                                        <p class="small text-muted mb-1">فواتير معلقة</p>
+                                        <p class="small text-muted mb-1">{{ __('dashboard.pending_invoices') }}</p>
                                         <span class="h3 mb-0">{{ $stats['pending_invoices'] ?? 0 }}</span>
                                     </div>
                                 </div>
@@ -159,8 +159,8 @@
                                         </span>
                                     </div>
                                     <div class="col pr-0">
-                                        <p class="small text-muted mb-1">نمو الإيرادات الشهري</p>
-                                        <span class="h3 mb-0">{{ number_format($stats['revenue_growth'] ?? 0, 1) }}%</span>
+                                        <p class="small text-muted mb-1">{{ __('dashboard.monthly_revenue_growth') }}</p>
+                                        <span class="h3 mb-0">{{ number_format($stats['revenue_growth'] ?? 0, 1) }}{{ __('dashboard.percentage') }}</span>
                                     </div>
                                 </div>
                             </div>
@@ -178,7 +178,7 @@
                                         </span>
                                     </div>
                                     <div class="col pr-0">
-                                        <p class="small text-muted mb-1">جهات الاتصال</p>
+                                        <p class="small text-muted mb-1">{{ __('dashboard.total_contacts') }}</p>
                                         <span class="h3 mb-0">{{ $stats['total_contacts'] ?? 0 }}</span>
                                     </div>
                                 </div>
@@ -197,7 +197,7 @@
                                         </span>
                                     </div>
                                     <div class="col pr-0">
-                                        <p class="small text-muted mb-1">الشهادات</p>
+                                        <p class="small text-muted mb-1">{{ __('dashboard.total_testimonials') }}</p>
                                         <span class="h3 mb-0">{{ $stats['total_testimonials'] ?? 0 }}</span>
                                     </div>
                                 </div>
@@ -216,7 +216,7 @@
                                         </span>
                                     </div>
                                     <div class="col pr-0">
-                                        <p class="small text-muted mb-1">المقالات</p>
+                                        <p class="small text-muted mb-1">{{ __('dashboard.total_blogs') }}</p>
                                         <span class="h3 mb-0">{{ $stats['total_blogs'] ?? 0 }}</span>
                                     </div>
                                 </div>
@@ -235,7 +235,7 @@
                                         </span>
                                     </div>
                                     <div class="col pr-0">
-                                        <p class="small text-muted mb-1">الشركاء</p>
+                                        <p class="small text-muted mb-1">{{ __('dashboard.total_partners') }}</p>
                                         <span class="h3 mb-0">{{ $stats['total_partners'] ?? 0 }}</span>
                                     </div>
                                 </div>
@@ -250,7 +250,7 @@
                     <div class="col-md-6 mb-4">
                         <div class="card shadow">
                             <div class="card-header">
-                                <strong class="card-title">الإيرادات الشهرية</strong>
+                                <strong class="card-title">{{ __('dashboard.monthly_revenue') }}</strong>
                             </div>
                             <div class="card-body">
                                 <canvas id="monthlyRevenueChart" width="400" height="200"></canvas>
@@ -262,7 +262,7 @@
                     <div class="col-md-6 mb-4">
                         <div class="card shadow">
                             <div class="card-header">
-                                <strong class="card-title">نمو العملاء</strong>
+                                <strong class="card-title">{{ __('dashboard.customer_growth') }}</strong>
                             </div>
                             <div class="card-body">
                                 <canvas id="customerGrowthChart" width="400" height="200"></canvas>
@@ -274,7 +274,7 @@
                     <div class="col-md-6 mb-4">
                         <div class="card shadow">
                             <div class="card-header">
-                                <strong class="card-title">توزيع الخدمات</strong>
+                                <strong class="card-title">{{ __('dashboard.services_distribution') }}</strong>
                             </div>
                             <div class="card-body">
                                 <canvas id="servicesDistributionChart" width="400" height="200"></canvas>
@@ -286,7 +286,7 @@
                     <div class="col-md-6 mb-4">
                         <div class="card shadow">
                             <div class="card-header">
-                                <strong class="card-title">حالة الفواتير</strong>
+                                <strong class="card-title">{{ __('dashboard.invoice_status') }}</strong>
                             </div>
                             <div class="card-body">
                                 <canvas id="invoiceStatusChart" width="400" height="200"></canvas>
@@ -300,7 +300,7 @@
                     <div class="col-md-12">
                         <div class="card shadow">
                             <div class="card-header">
-                                <strong class="card-title">الأنشطة الأخيرة</strong>
+                                <strong class="card-title">{{ __('dashboard.recent_activities') }}</strong>
                             </div>
                             <div class="card-body">
                                 <div class="list-group list-group-flush my-n3">
@@ -359,8 +359,8 @@
                                                 <span class="fe fe-target fe-16 text-muted"></span>
                                             </div>
                                             <div class="col">
-                                                <small><strong><a href="{{ route('company-goals.index') }}">إدارة أهداف الشركة</a></strong></small>
-                                                <div class="my-0 text-muted small">إضافة وتعديل أهداف الشركة</div>
+                                                <small><strong><a href="{{ route('company-goals.index') }}">{{ __('dashboard.manage_company_goals') }}</a></strong></small>
+                                                <div class="my-0 text-muted small">{{ __('dashboard.add_edit_company_goals') }}</div>
                                             </div>
                                         </div>
                                     </div>
@@ -370,8 +370,8 @@
                                                 <span class="fe fe-users fe-16 text-muted"></span>
                                             </div>
                                             <div class="col">
-                                                <small><strong><a href="{{ route('customers.index') }}">إدارة العملاء</a></strong></small>
-                                                <div class="my-0 text-muted small">عرض وإدارة بيانات العملاء</div>
+                                                <small><strong><a href="{{ route('customers.index') }}">{{ __('dashboard.manage_customers') }}</a></strong></small>
+                                                <div class="my-0 text-muted small">{{ __('dashboard.view_manage_customer_data') }}</div>
                                             </div>
                                         </div>
                                     </div>
@@ -381,8 +381,8 @@
                                                 <span class="fe fe-file-text fe-16 text-muted"></span>
                                             </div>
                                             <div class="col">
-                                                <small><strong><a href="{{ route('invoices.index') }}">إدارة الفواتير</a></strong></small>
-                                                <div class="my-0 text-muted small">عرض وإدارة الفواتير والمدفوعات</div>
+                                                <small><strong><a href="{{ route('invoices.index') }}">{{ __('dashboard.manage_invoices') }}</a></strong></small>
+                                                <div class="my-0 text-muted small">{{ __('dashboard.view_manage_invoices_payments') }}</div>
                                             </div>
                                         </div>
                                     </div>
@@ -427,7 +427,7 @@
                     },
                     title: {
                         display: true,
-                        text: 'الإيرادات الشهرية لآخر 6 أشهر'
+                        text: '{{ __("dashboard.monthly_revenue_last_6_months") }}'
                     }
                 },
                 scales: {
@@ -467,7 +467,7 @@
                     },
                     title: {
                         display: true,
-                        text: 'نمو العملاء الجدد لآخر 6 أشهر'
+                        text: '{{ __("dashboard.new_customer_growth_last_6_months") }}'
                     }
                 },
                 scales: {
@@ -510,7 +510,7 @@
                     },
                     title: {
                         display: true,
-                        text: 'توزيع الخدمات'
+                        text: '{{ __("dashboard.services_distribution") }}'
                     }
                 }
             }
@@ -543,7 +543,7 @@
                     },
                     title: {
                         display: true,
-                        text: 'توزيع حالة الفواتير'
+                        text: '{{ __("dashboard.invoice_status_distribution") }}'
                     }
                 }
             }

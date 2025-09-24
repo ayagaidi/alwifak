@@ -1,14 +1,19 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\LanguageController;
 use Illuminate\Support\Facades\Route;
-
+use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\Session;
 
 use App\Http\Controllers\DashboardController;
 
 require __DIR__.'/auth.php';
 
 Route::get('/dashboard', [DashboardController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
+
+// Language switch route
+Route::post('/language/switch', [LanguageController::class, 'switch'])->name('language.switch');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

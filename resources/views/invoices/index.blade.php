@@ -5,11 +5,11 @@
     <div class="container-fluid">
         <div class="row justify-content-center">
             <div class="col-12">
-                <h2 class="h5 page-title mb-4">إدارة الفواتير</h2>
+                <h2 class="h5 page-title mb-4">{{ __('invoices.invoices_management') }}</h2>
 
                 <div class="mb-3">
                     <button id="btnAddInvoice" class="btn btn-primary">
-                        إضافة فاتورة جديدة
+                        {{ __('invoices.add_invoice') }}
                     </button>
                 </div>
 
@@ -18,13 +18,13 @@
                         <table class="table table-striped table-hover" id="invoicesTable" style="width:100%">
                             <thead>
                                 <tr>
-                                    <th>رقم الفاتورة</th>
-                                    <th>اسم العميل</th>
-                                    <th>تاريخ الفاتورة</th>
-                                    <th>تاريخ الاستحقاق</th>
-                                    <th>حالة الدفع</th>
-                                    <th>المبلغ الإجمالي</th>
-                                    <th>الإجراءات</th>
+                                    <th>{{ __('invoices.invoice_number') }}</th>
+                                    <th>{{ __('invoices.customer_name') }}</th>
+                                    <th>{{ __('invoices.invoice_date') }}</th>
+                                    <th>{{ __('invoices.due_date') }}</th>
+                                    <th>{{ __('invoices.payment_status') }}</th>
+                                    <th>{{ __('invoices.total_amount') }}</th>
+                                    <th>{{ __('invoices.actions') }}</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -39,8 +39,8 @@
                         <form id="invoiceForm">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title" id="invoiceModalLabel">إضافة فاتورة</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="إغلاق">
+                                    <h5 class="modal-title" id="invoiceModalLabel">{{ __('invoices.add_invoice') }}</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="{{ __('invoices.cancel') }}">
                                         <span aria-hidden="true">&times;</span>
                                     </button>
                                 </div>
@@ -51,15 +51,15 @@
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label for="customer_id">العميل</label>
+                                                <label for="customer_id">{{ __('invoices.customer_name') }}</label>
                                                 <select class="form-control" id="customer_id" name="customer_id" required>
-                                                    <option value="">اختر العميل</option>
+                                                    <option value="">{{ __('invoices.select_customer') }}</option>
                                                 </select>
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label for="invoice_date">تاريخ الفاتورة</label>
+                                                <label for="invoice_date">{{ __('invoices.invoice_date') }}</label>
                                                 <input type="date" class="form-control" id="invoice_date" name="invoice_date" required>
                                             </div>
                                         </div>
@@ -68,18 +68,18 @@
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label for="due_date">تاريخ الاستحقاق</label>
+                                                <label for="due_date">{{ __('invoices.due_date') }}</label>
                                                 <input type="date" class="form-control" id="due_date" name="due_date" required>
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label for="payment_status">حالة الدفع</label>
+                                                <label for="payment_status">{{ __('invoices.payment_status') }}</label>
                                                 <select class="form-control" id="payment_status" name="payment_status" required>
-                                                    <option value="pending">في الانتظار</option>
-                                                    <option value="paid">مدفوعة</option>
-                                                    <option value="overdue">متأخرة</option>
-                                                    <option value="cancelled">ملغاة</option>
+                                                    <option value="pending">{{ __('invoices.pending') }}</option>
+                                                    <option value="paid">{{ __('invoices.paid') }}</option>
+                                                    <option value="overdue">{{ __('invoices.overdue') }}</option>
+                                                    <option value="cancelled">{{ __('invoices.cancelled') }}</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -88,20 +88,20 @@
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label for="payment_method">طريقة الدفع</label>
+                                                <label for="payment_method">{{ __('invoices.payment_method') }}</label>
                                                 <select class="form-control" id="payment_method" name="payment_method">
-                                                    <option value="">اختر طريقة الدفع</option>
-                                                    <option value="cash">نقدي</option>
-                                                    <option value="bank_transfer">تحويل بنكي</option>
-                                                    <option value="check">شيك</option>
-                                                    <option value="credit_card">بطاقة ائتمان</option>
-                                                    <option value="other">أخرى</option>
+                                                    <option value="">{{ __('invoices.select_payment_method') }}</option>
+                                                    <option value="cash">{{ __('invoices.cash') }}</option>
+                                                    <option value="bank_transfer">{{ __('invoices.bank_transfer') }}</option>
+                                                    <option value="check">{{ __('invoices.check') }}</option>
+                                                    <option value="credit_card">{{ __('invoices.credit_card') }}</option>
+                                                    <option value="other">{{ __('invoices.other') }}</option>
                                                 </select>
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label for="payment_date">تاريخ الدفع</label>
+                                                <label for="payment_date">{{ __('invoices.payment_date') }}</label>
                                                 <input type="date" class="form-control" id="payment_date" name="payment_date">
                                             </div>
                                         </div>
@@ -110,48 +110,48 @@
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label for="tax_amount">مبلغ الضريبة</label>
+                                                <label for="tax_amount">{{ __('invoices.tax_amount') }}</label>
                                                 <input type="number" step="0.01" class="form-control" id="tax_amount" name="tax_amount" value="0" min="0">
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label for="discount_amount">مبلغ الخصم</label>
+                                                <label for="discount_amount">{{ __('invoices.discount_amount') }}</label>
                                                 <input type="number" step="0.01" class="form-control" id="discount_amount" name="discount_amount" value="0" min="0">
                                             </div>
                                         </div>
                                     </div>
 
                                     <div class="form-group">
-                                        <label for="notes">ملاحظات</label>
+                                        <label for="notes">{{ __('invoices.notes') }}</label>
                                         <textarea class="form-control" id="notes" name="notes" rows="3" maxlength="1000"></textarea>
                                     </div>
 
                                     <!-- Invoice Items -->
-                                    <h5>عناصر الفاتورة</h5>
+                                    <h5>{{ __('invoices.invoice_items') }}</h5>
                                     <div id="invoiceItems">
                                         <div class="item-row">
                                             <div class="row">
                                                 <div class="col-md-4">
                                                     <select class="form-control service-select" name="items[0][service_id]" required>
-                                                        <option value="">اختر الخدمة</option>
+                                                        <option value="">{{ __('invoices.select_service') }}</option>
                                                     </select>
                                                 </div>
                                                 <div class="col-md-2">
-                                                    <input type="number" class="form-control quantity-input" name="items[0][quantity]" placeholder="الكمية" min="1" required>
+                                                    <input type="number" class="form-control quantity-input" name="items[0][quantity]" placeholder="{{ __('invoices.quantity') }}" min="1" required>
                                                 </div>
                                                 <div class="col-md-2">
-                                                    <input type="number" step="0.01" class="form-control price-input" name="items[0][unit_price]" placeholder="السعر" min="0" required>
+                                                    <input type="number" step="0.01" class="form-control price-input" name="items[0][unit_price]" placeholder="{{ __('invoices.unit_price') }}" min="0" required>
                                                 </div>
-                                               
+
                                                 <div class="col-md-2">
-                                                    <button type="button" class="btn btn-danger btn-sm remove-item" style="display: none;">حذف</button>
+                                                    <button type="button" class="btn btn-danger btn-sm remove-item" style="display: none;">{{ __('invoices.remove_item') }}</button>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
 
-                                    <button type="button" id="addItemBtn" class="btn btn-secondary btn-sm">إضافة عنصر</button>
+                                    <button type="button" id="addItemBtn" class="btn btn-secondary btn-sm">{{ __('invoices.add_item') }}</button>
 
                                     <!-- Totals -->
                                     <div class="row mt-3">
@@ -159,20 +159,20 @@
                                         <div class="col-md-6">
                                             <div class="invoice-totals">
                                                 <div class="d-flex justify-content-between">
-                                                    <span>المجموع الفرعي:</span>
+                                                    <span>{{ __('invoices.subtotal') }}:</span>
                                                     <span id="subtotal">0.00</span>
                                                 </div>
                                                 <div class="d-flex justify-content-between">
-                                                    <span>الضريبة:</span>
+                                                    <span>{{ __('invoices.tax_amount') }}:</span>
                                                     <span id="tax-total">0.00</span>
                                                 </div>
                                                 <div class="d-flex justify-content-between">
-                                                    <span>الخصم:</span>
+                                                    <span>{{ __('invoices.discount_amount') }}:</span>
                                                     <span id="discount-total">0.00</span>
                                                 </div>
                                                 <hr>
                                                 <div class="d-flex justify-content-between font-weight-bold">
-                                                    <span>الإجمالي:</span>
+                                                    <span>{{ __('invoices.grand_total') }}:</span>
                                                     <span id="grand-total">0.00</span>
                                                 </div>
                                             </div>
@@ -180,8 +180,8 @@
                                     </div>
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">إلغاء</button>
-                                    <button type="submit" class="btn btn-primary">حفظ</button>
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">{{ __('invoices.cancel') }}</button>
+                                    <button type="submit" class="btn btn-primary">{{ __('invoices.save') }}</button>
                                 </div>
                             </div>
                         </form>
@@ -239,7 +239,7 @@ $(document).ready(function() {
     $('#btnAddInvoice').click(function() {
         $('#invoiceForm')[0].reset();
         $('#invoiceId').val('');
-        $('#invoiceModalLabel').text('إضافة فاتورة');
+        $('#invoiceModalLabel').text('{{ __("invoices.add_invoice") }}');
         $('#invoiceModal').modal('show');
         addNewItemRow();
     });
@@ -267,11 +267,11 @@ $(document).ready(function() {
         var invoiceId = $(this).data('invoice-id');
 
         Swal.fire({
-            title: 'هل أنت متأكد من حذف الفاتورة؟',
+            title: '{{ __("invoices.confirm_delete") }}',
             icon: 'warning',
             showCancelButton: true,
-            confirmButtonText: 'نعم، احذف',
-            cancelButtonText: 'إلغاء',
+            confirmButtonText: '{{ __("invoices.confirm_delete_yes") }}',
+            cancelButtonText: '{{ __("invoices.cancel") }}',
         }).then((result) => {
             if (result.isConfirmed) {
                 deleteInvoice(invoiceId);
@@ -321,7 +321,7 @@ $(document).ready(function() {
         $.get('/customers', function(data) {
             var $select = $('#customer_id');
             $select.empty();
-            $select.append('<option value="">اختر العميل</option>');
+            $select.append('<option value="">{{ __("invoices.select_customer") }}</option>');
             data.data.forEach(function(customer) {
                 $select.append('<option value="' + customer.id + '">' + customer.name + '</option>');
             });
@@ -333,7 +333,7 @@ $(document).ready(function() {
             $('.service-select').each(function() {
                 var $select = $(this);
                 $select.empty();
-                $select.append('<option value="">اختر الخدمة</option>');
+                $select.append('<option value="">{{ __("invoices.select_service") }}</option>');
                 services.forEach(function(service) {
                     $select.append('<option value="' + service.id + '">' + service.name_ar + '</option>');
                 });
@@ -348,18 +348,18 @@ $(document).ready(function() {
                 <div class="row">
                     <div class="col-md-4">
                         <select class="form-control service-select" name="items[${itemCount}][service_id]" required>
-                            <option value="">اختر الخدمة</option>
+                            <option value="">{{ __("invoices.select_service") }}</option>
                         </select>
                     </div>
                     <div class="col-md-2">
-                        <input type="number" class="form-control quantity-input" name="items[${itemCount}][quantity]" placeholder="الكمية" min="1" required>
+                        <input type="number" class="form-control quantity-input" name="items[${itemCount}][quantity]" placeholder="{{ __("invoices.quantity") }}" min="1" required>
                     </div>
                     <div class="col-md-2">
-                        <input type="number" step="0.01" class="form-control price-input" name="items[${itemCount}][unit_price]" placeholder="السعر" min="0" required>
+                        <input type="number" step="0.01" class="form-control price-input" name="items[${itemCount}][unit_price]" placeholder="{{ __("invoices.unit_price") }}" min="0" required>
                     </div>
-                    
+
                     <div class="col-md-2">
-                        <button type="button" class="btn btn-danger btn-sm remove-item">حذف</button>
+                        <button type="button" class="btn btn-danger btn-sm remove-item">{{ __("invoices.remove_item") }}</button>
                     </div>
                 </div>
             </div>
@@ -412,7 +412,7 @@ $(document).ready(function() {
                         <div class="row">
                             <div class="col-md-4">
                                 <select class="form-control service-select" name="items[${index}][service_id]" required>
-                                    <option value="">اختر الخدمة</option>
+                                    <option value="">{{ __("invoices.select_service") }}</option>
                                 </select>
                             </div>
                             <div class="col-md-2">
@@ -421,9 +421,9 @@ $(document).ready(function() {
                             <div class="col-md-2">
                                 <input type="number" step="0.01" class="form-control price-input" name="items[${index}][unit_price]" value="${item.unit_price}" min="0" required>
                             </div>
-                        
+
                             <div class="col-md-2">
-                                <button type="button" class="btn btn-danger btn-sm remove-item">حذف</button>
+                                <button type="button" class="btn btn-danger btn-sm remove-item">{{ __("invoices.remove_item") }}</button>
                             </div>
                         </div>
                     </div>
@@ -440,7 +440,7 @@ $(document).ready(function() {
                 calculateTotals();
             }, 100);
 
-            $('#invoiceModalLabel').text('تعديل فاتورة');
+            $('#invoiceModalLabel').text('{{ __("invoices.edit_invoice") }}');
             $('#invoiceModal').modal('show');
         });
     }
@@ -461,7 +461,7 @@ $(document).ready(function() {
             success: function(response) {
                 Swal.fire({
                     icon: 'success',
-                    title: 'نجاح',
+                    title: '{{ __("invoices.success") }}',
                     text: response.message,
                 }).then(() => {
                     table.ajax.reload(null, false);
@@ -469,13 +469,13 @@ $(document).ready(function() {
                 });
             },
             error: function(xhr) {
-                var errorMessage = 'حدث خطأ';
+                var errorMessage = '{{ __("invoices.error_occurred") }}';
                 if (xhr.responseJSON && xhr.responseJSON.message) {
                     errorMessage = xhr.responseJSON.message;
                 }
                 Swal.fire({
                     icon: 'error',
-                    title: 'خطأ',
+                    title: '{{ __("invoices.error") }}',
                     text: errorMessage,
                 });
             }
@@ -489,19 +489,19 @@ $(document).ready(function() {
             success: function(response) {
                 Swal.fire({
                     icon: 'success',
-                    title: 'نجاح',
+                    title: '{{ __("invoices.success") }}',
                     text: response.message,
                 });
                 table.ajax.reload(null, false);
             },
             error: function(xhr) {
-                var errorMessage = 'حدث خطأ';
+                var errorMessage = '{{ __("invoices.error_occurred") }}';
                 if (xhr.responseJSON && xhr.responseJSON.message) {
                     errorMessage = xhr.responseJSON.message;
                 }
                 Swal.fire({
                     icon: 'error',
-                    title: 'خطأ',
+                    title: '{{ __("invoices.error") }}',
                     text: errorMessage,
                 });
             }
