@@ -91,6 +91,28 @@
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             }
         });
+
+        // Language switching function
+        function switchLanguage(locale) {
+            const form = document.createElement('form');
+            form.method = 'POST';
+            form.action = '{{ route("language.switch") }}';
+
+            const csrfToken = document.createElement('input');
+            csrfToken.type = 'hidden';
+            csrfToken.name = '_token';
+            csrfToken.value = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+            form.appendChild(csrfToken);
+
+            const localeInput = document.createElement('input');
+            localeInput.type = 'hidden';
+            localeInput.name = 'locale';
+            localeInput.value = locale;
+            form.appendChild(localeInput);
+
+            document.body.appendChild(form);
+            form.submit();
+        }
     </script>
 </body>
 

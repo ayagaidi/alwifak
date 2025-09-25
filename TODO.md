@@ -1,6 +1,17 @@
-# TODO: Add Language Support to Search Index View
+# TODO: Enhance Login Page
 
-## Tasks
-- [ ] Add missing translation keys to resources/lang/en/dashboard.php (search_results_for, no_results_found, search.sections.*)
-- [ ] Add missing translation keys to resources/lang/ar/dashboard.php (Arabic equivalents)
-- [ ] Update resources/views/search/index.blade.php to use translation keys for section headers and "View" button
+## Completed
+- [x] Create resources/lang/en/auth.php with login translations
+- [x] Create resources/lang/ar/auth.php with login translations
+- [x] Edit resources/views/auth/login.blade.php:
+  - Wrap form in Bootstrap card for better UI
+  - Make labels visible above inputs
+  - Add forgot password link
+  - Localize all text using __()
+  - Improve logo section with alt text
+  - Enhance SweetAlert for better error handling
+  - Ensure RTL compatibility
+
+## Followup
+- [ ] Test login page: Run `php artisan serve`, open in browser, verify form, localization, responsiveness
+- [ ] Check console for errors
