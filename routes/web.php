@@ -16,6 +16,9 @@ Route::get('/dashboard', [DashboardController::class, 'index'])->middleware(['au
 Route::post('/language/switch', [LanguageController::class, 'switch'])->name('language.switch');
 
 Route::middleware('auth')->group(function () {
+    // Search route
+    Route::get('/search', [\App\Http\Controllers\SearchController::class, 'index'])->name('search.index');
+
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');

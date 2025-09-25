@@ -1,6 +1,6 @@
-- [x] Update table headers in testimonials/index.blade.php to use __('testimonials.key')
-- [x] Update modal form labels, placeholders, and options to use lang keys
-- [x] Update JavaScript strings to use lang keys where hardcoded
-- [x] Verify all hardcoded strings are replaced
-- [x] Create lang files for blogs (en and ar)
-- [x] Update blogs/index.blade.php to use @lang('blogs.key') for all hardcoded strings
+# TODO: Add Language Support to Search Index View
+
+## Tasks
+- [ ] Add missing translation keys to resources/lang/en/dashboard.php (search_results_for, no_results_found, search.sections.*)
+- [ ] Add missing translation keys to resources/lang/ar/dashboard.php (Arabic equivalents)
+- [ ] Update resources/views/search/index.blade.php to use translation keys for section headers and "View" button

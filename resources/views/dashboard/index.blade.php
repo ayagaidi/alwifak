@@ -320,9 +320,9 @@
                                                     <div class="col">
                                                         <small><strong>
                                                             @if($activity->action == 'login')
-                                                                تم تسجيل دخول جديد
+                                                                {{ __('dashboard.new_login_activity') }}
                                                             @elseif($activity->action == 'dashboard_action')
-                                                                تم تنفيذ إجراء في لوحة التحكم
+                                                                {{ __('dashboard.dashboard_action_activity') }}
                                                             @else
                                                                 {{ $activity->action }}
                                                             @endif
@@ -346,7 +346,7 @@
                                         <div class="list-group-item">
                                             <div class="row align-items-center">
                                                 <div class="col">
-                                                    <small class="text-muted">لا توجد أنشطة حديثة</small>
+                                                    <small class="text-muted">{{ __('dashboard.no_recent_activities') }}</small>
                                                 </div>
                                             </div>
                                         </div>
@@ -411,7 +411,7 @@
             data: {
                 labels: @json($stats['monthly_revenue_chart']['labels']),
                 datasets: [{
-                    label: 'الإيرادات (ر.س)',
+                    label: '{{ __("dashboard.revenue_label") }}',
                     data: @json($stats['monthly_revenue_chart']['data']),
                     borderColor: 'rgb(75, 192, 192)',
                     backgroundColor: 'rgba(75, 192, 192, 0.2)',

@@ -68,6 +68,27 @@ return [
     'services_label' => 'الخدمات',
     'invoice_status_label' => 'حالة الفواتير',
 
+    // Additional Activity Labels
+    'new_login_activity' => 'تم تسجيل دخول جديد',
+    'dashboard_action_activity' => 'تم تنفيذ إجراء في لوحة التحكم',
+    'no_recent_activities' => 'لا توجد أنشطة حديثة',
+
+    // Chart Titles
+    'monthly_revenue' => 'الإيرادات الشهرية',
+    'customer_growth' => 'نمو العملاء',
+    'services_distribution' => 'توزيع الخدمات',
+    'invoice_status' => 'حالة الفواتير',
+    'monthly_revenue_last_6_months' => 'الإيرادات الشهرية لآخر 6 أشهر',
+    'new_customer_growth_last_6_months' => 'نمو العملاء الجدد لآخر 6 أشهر',
+
+    // Quick Actions Descriptions
+    'manage_company_goals' => 'إدارة أهداف الشركة',
+    'manage_customers' => 'إدارة العملاء',
+    'manage_invoices' => 'إدارة الفواتير',
+    'company_goals_description' => 'إضافة وتعديل أهداف الشركة',
+    'customers_description' => 'عرض وإدارة بيانات العملاء',
+    'invoices_description' => 'عرض وإدارة الفواتير والمدفوعات',
+
     // Navigation
     'dashboard' => 'لوحة التحكم',
     'users_management' => 'إدارة المستخدمين',
@@ -87,6 +108,21 @@ return [
 
     // Search
     'search_placeholder' => 'البحث...',
+    'search_results_for' => 'نتائج البحث عن',
+    'no_results_found' => 'لم يتم العثور على نتائج',
+    'search' => [
+        'sections' => [
+            'users' => 'المستخدمين',
+            'customers' => 'العملاء',
+            'services' => 'الخدمات',
+            'blogs' => 'المقالات',
+            'contacts' => 'جهات الاتصال',
+            'testimonials' => 'الشهادات',
+            'invoices' => 'الفواتير',
+            'partners' => 'الشركاء',
+            'company_goals' => 'أهداف الشركة',
+        ],
+    ],
 
     // Common Actions
     'edit' => 'تعديل',

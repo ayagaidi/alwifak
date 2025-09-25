@@ -68,6 +68,27 @@ return [
     'services_label' => 'Services',
     'invoice_status_label' => 'Invoice Status',
 
+    // Additional Activity Labels
+    'new_login_activity' => 'New login recorded',
+    'dashboard_action_activity' => 'Dashboard action performed',
+    'no_recent_activities' => 'No recent activities',
+
+    // Chart Titles
+    'monthly_revenue' => 'Monthly Revenue',
+    'customer_growth' => 'Customer Growth',
+    'services_distribution' => 'Services Distribution',
+    'invoice_status' => 'Invoice Status',
+    'monthly_revenue_last_6_months' => 'Monthly Revenue for Last 6 Months',
+    'new_customer_growth_last_6_months' => 'New Customer Growth for Last 6 Months',
+
+    // Quick Actions Descriptions
+    'manage_company_goals' => 'Manage Company Goals',
+    'manage_customers' => 'Manage Customers',
+    'manage_invoices' => 'Manage Invoices',
+    'company_goals_description' => 'Add and edit company goals',
+    'customers_description' => 'View and manage customer data',
+    'invoices_description' => 'View and manage invoices and payments',
+
     // Navigation
     'dashboard' => 'Dashboard',
     'users_management' => 'User Management',
@@ -87,6 +108,21 @@ return [
 
     // Search
     'search_placeholder' => 'Search...',
+    'search_results_for' => 'Search Results for',
+    'no_results_found' => 'No results found',
+    'search' => [
+        'sections' => [
+            'users' => 'Users',
+            'customers' => 'Customers',
+            'services' => 'Services',
+            'blogs' => 'Blogs',
+            'contacts' => 'Contacts',
+            'testimonials' => 'Testimonials',
+            'invoices' => 'Invoices',
+            'partners' => 'Partners',
+            'company_goals' => 'Company Goals',
+        ],
+    ],
 
     // Common Actions
     'edit' => 'Edit',

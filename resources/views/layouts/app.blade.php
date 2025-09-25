@@ -1,7 +1,6 @@
 @php
     $currentLocale = session('locale', config('app.locale', 'ar'));
     $isRtl = $currentLocale === 'ar';
-    \Illuminate\Support\Facades\App::setLocale($currentLocale);
 @endphp
 
 <!doctype html>
@@ -19,6 +18,7 @@
     <link rel="stylesheet" href="{{ asset('light-rtl/css/simplebar.css') }}">
     <!-- Fonts CSS -->
     <link href="https://fonts.googleapis.com/css2?family=Overpass:ital,wght@0,100;0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@200;300;400;500;700;800;900&display=swap" rel="stylesheet">
     <!-- Icons CSS -->
     <link rel="stylesheet" href="{{ asset('light-rtl/css/feather.css') }}">
     <link rel="stylesheet" href="{{ asset('light-rtl/css/select2.css') }}">
@@ -36,9 +36,13 @@
     <!-- Dynamic CSS based on language -->
     @if($isRtl)
     <style>
-        body { font-family: 'Arial', sans-serif; }
+        body { font-family: 'Tajawal', sans-serif; }
         .text-left { text-align: right !important; }
         .text-right { text-align: left !important; }
+    </style>
+    @else
+    <style>
+        body { font-family: 'Overpass', sans-serif; }
     </style>
     @endif
 
@@ -53,8 +57,8 @@
     <button type="button" class="navbar-toggler text-muted mt-2 p-0 {{ $isRtl ? 'mr-3' : 'ml-3' }} collapseSidebar">
         <i class="fe fe-menu navbar-toggler-icon"></i>
     </button>
-    <form class="form-inline {{ $isRtl ? 'mr-auto' : 'ml-auto' }} searchform text-muted">
-        <input class="form-control {{ $isRtl ? 'mr-sm-2' : 'ml-sm-2' }} bg-transparent border-0 {{ $isRtl ? 'pl-4' : 'pr-4' }} text-muted" type="search" placeholder="{{ __('dashboard.search_placeholder') }}" aria-label="Search">
+    <form class="form-inline {{ $isRtl ? 'mr-auto' : 'ml-auto' }} searchform text-muted" action="{{ route('search.index') }}" method="GET">
+        <input class="form-control {{ $isRtl ? 'mr-sm-2' : 'ml-sm-2' }} bg-transparent border-0 {{ $isRtl ? 'pl-4' : 'pr-4' }} text-muted" type="search" name="q" placeholder="{{ __('dashboard.search_placeholder') }}" aria-label="Search">
     </form>
     <ul class="nav">
         <li class="nav-item">
@@ -82,7 +86,7 @@
             </a>
             <div class="dropdown-menu {{ $isRtl ? 'dropdown-menu-right' : 'dropdown-menu-left' }}" aria-labelledby="navbarDropdownMenuLink">
                 <a class="dropdown-item" href="{{ route('profile.edit') }}">{{ __('dashboard.profile') }}</a>
-                <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">{{ __('dashboard.logout') }}</a>
+                <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"> {{ __('dashboard.logout') }}</a>
                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                     @csrf
                 </form>
@@ -166,9 +170,12 @@
             </li>
 
             <li class="nav-item w-100">
-                <a class="nav-link" href="#">
-                    <i class="fe fe-settings fe-16"></i>
-                    <span class="{{ $isRtl ? 'ml-3' : 'mr-3' }} item-text">{{ __('dashboard.settings') }}</span>
+                <a class="nav-link"  href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                    <i class="fe fe fe-log-out  fe-16"></i>
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                    @csrf
+                </form>
+                    <span class="{{ $isRtl ? 'ml-3' : 'mr-3' }} item-text">{{ __('dashboard.logout') }}</span>
                 </a>
             </li>
         </ul>

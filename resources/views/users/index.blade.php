@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+
 <main role="main" class="main-content">
     <div class="container-fluid">
         <div class="row justify-content-center">
@@ -83,6 +84,7 @@
 <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
 <script>
 var currentLocale = '{{ app()->getLocale() }}';
+
 
 $(document).ready(function() {
     var table = $('#usersTable').DataTable({
