@@ -1,3 +1,5 @@
+
+
 @extends('layouts.app')
 
 @section('content')
@@ -5,11 +7,11 @@
     <div class="container-fluid">
         <div class="row justify-content-center">
             <div class="col-12">
-                <h2 class="h5 page-title mb-4">إدارة العملاء</h2>
+                <h2 class="h5 page-title mb-4">{{ __('customers.customers_management') }}</h2>
 
                 <div class="mb-3">
                     <button id="btnAddCustomer" class="btn btn-primary">
-                        إضافة عميل جديد
+                        {{ __('customers.add_customer') }}
                     </button>
                 </div>
 
@@ -18,12 +20,12 @@
                         <table class="table table-striped table-hover" id="customersTable" style="width:100%">
                             <thead>
                                 <tr>
-                                    <th>اسم العميل</th>
-                                    <th>رقم الهاتف</th>
-                                    <th>البريد الإلكتروني</th>
-                                    <th>اسم الشركة</th>
-                                    <th>العنوان</th>
-                                    <th>الإجراءات</th>
+                                    <th>{{ __('customers.customer_name') }}</th>
+                                    <th>{{ __('customers.phone_number') }}</th>
+                                    <th>{{ __('customers.email_optional') }}</th>
+                                    <th>{{ __('customers.company_optional') }}</th>
+                                    <th>{{ __('customers.address') }}</th>
+                                    <th>{{ __('customers.actions') }}</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -38,37 +40,37 @@
                         <form id="customerForm">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title" id="customerModalLabel">إضافة عميل</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="إغلاق">
+                                    <h5 class="modal-title" id="customerModalLabel">{{ __('customers.add_customer') }}</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="{{ __('customers.close') }}">
                                         <span aria-hidden="true">&times;</span>
                                     </button>
                                 </div>
                                 <div class="modal-body">
                                     <input type="hidden" id="customerId" name="customerId" value="">
                                     <div class="form-group">
-                                        <label for="name">اسم العميل</label>
+                                        <label for="name">{{ __('customers.customer_name') }}</label>
                                         <input type="text" class="form-control" id="name" name="name" required>
                                     </div>
                                     <div class="form-group">
-                                        <label for="phone">رقم الهاتف</label>
+                                        <label for="phone">{{ __('customers.phone_number') }}</label>
                                         <input type="text" class="form-control" id="phone" name="phone" required>
                                     </div>
                                     <div class="form-group">
-                                        <label for="email">البريد الإلكتروني (اختياري)</label>
+                                        <label for="email">{{ __('customers.email_optional') }}</label>
                                         <input type="email" class="form-control" id="email" name="email">
                                     </div>
                                     <div class="form-group">
-                                        <label for="company">اسم الشركة (اختياري)</label>
+                                        <label for="company">{{ __('customers.company_optional') }}</label>
                                         <input type="text" class="form-control" id="company" name="company">
                                     </div>
                                     <div class="form-group">
-                                        <label for="address">العنوان</label>
+                                        <label for="address">{{ __('customers.address') }}</label>
                                         <input type="text" class="form-control" id="address" name="address" required>
                                     </div>
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">إلغاء</button>
-                                    <button type="submit" class="btn btn-primary">حفظ</button>
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">{{ __('customers.cancel') }}</button>
+                                    <button type="submit" class="btn btn-primary">{{ __('customers.save') }}</button>
                                 </div>
                             </div>
                         </form>
@@ -88,6 +90,18 @@
 @push('scripts')
 <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
 <script>
+var customersLang = {
+    add_customer: '{{ __('customers.add_customer') }}',
+    edit_customer: '{{ __('customers.edit_customer') }}',
+    success: '{{ __('customers.success') }}',
+    error: '{{ __('customers.error') }}',
+    an_error_occurred: '{{ __('customers.an_error_occurred') }}',
+    confirm_delete_customer: '{{ __('customers.confirm_delete_customer') }}',
+    yes_delete: '{{ __('customers.yes_delete') }}',
+    cancel: '{{ __('customers.cancel') }}',
+    save: '{{ __('customers.save') }}'
+};
+
 $(document).ready(function() {
     var table = $('#customersTable').DataTable({
         processing: true,
@@ -110,7 +124,7 @@ $(document).ready(function() {
     $('#btnAddCustomer').click(function() {
         $('#customerForm')[0].reset();
         $('#customerId').val('');
-        $('#customerModalLabel').text('إضافة عميل');
+        $('#customerModalLabel').text(customersLang.add_customer);
         $('#customerModal').modal('show');
     });
 
@@ -126,7 +140,7 @@ $(document).ready(function() {
         $('#email').val(rowData.email);
         $('#company').val(rowData.company);
         $('#address').val(rowData.address);
-        $('#customerModalLabel').text('تعديل عميل');
+        $('#customerModalLabel').text(customersLang.edit_customer);
         $('#customerModal').modal('show');
     });
 
@@ -153,7 +167,7 @@ $(document).ready(function() {
             success: function(response) {
                 Swal.fire({
                     icon: 'success',
-                    title: 'نجاح',
+                    title: customersLang.success,
                     text: response.message,
                 }).then(() => {
                     table.ajax.reload(null, false);
@@ -161,13 +175,13 @@ $(document).ready(function() {
                 });
             },
             error: function(xhr) {
-                var errorMessage = 'حدث خطأ';
+                var errorMessage = customersLang.an_error_occurred;
                 if (xhr.responseJSON && xhr.responseJSON.message) {
                     errorMessage = xhr.responseJSON.message;
                 }
                 Swal.fire({
                     icon: 'error',
-                    title: 'خطأ',
+                    title: customersLang.error,
                     text: errorMessage,
                 });
             }
@@ -179,11 +193,11 @@ $(document).ready(function() {
         var customerId = $(this).data('customer-id');
 
         Swal.fire({
-            title: 'هل أنت متأكد من حذف العميل؟',
+            title: customersLang.confirm_delete_customer,
             icon: 'warning',
             showCancelButton: true,
-            confirmButtonText: 'نعم، احذف',
-            cancelButtonText: 'إلغاء',
+            confirmButtonText: customersLang.yes_delete,
+            cancelButtonText: customersLang.cancel,
         }).then((result) => {
             if (result.isConfirmed) {
                 $.ajax({
@@ -192,19 +206,19 @@ $(document).ready(function() {
                     success: function(response) {
                         Swal.fire({
                             icon: 'success',
-                            title: 'نجاح',
+                            title: customersLang.success,
                             text: response.message,
                         });
                         table.ajax.reload(null, false);
                     },
                     error: function(xhr) {
-                        var errorMessage = 'حدث خطأ';
+                        var errorMessage = customersLang.an_error_occurred;
                         if (xhr.responseJSON && xhr.responseJSON.message) {
                             errorMessage = xhr.responseJSON.message;
                         }
                         Swal.fire({
                             icon: 'error',
-                            title: 'خطأ',
+                            title: customersLang.error,
                             text: errorMessage,
                         });
                     }

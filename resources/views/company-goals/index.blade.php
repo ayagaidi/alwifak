@@ -5,11 +5,11 @@
     <div class="container-fluid">
         <div class="row justify-content-center">
             <div class="col-12">
-                <h2 class="h5 page-title mb-4">إدارة أهداف الشركة</h2>
+                <h2 class="h5 page-title mb-4">{{ __('company-goals.company_goals_management') }}</h2>
 
                 <div class="mb-3">
                     <button id="btnAddCompanyGoal" class="btn btn-primary">
-                        إضافة هدف جديد
+                        {{ __('company-goals.add_new_goal') }}
                     </button>
                 </div>
 
@@ -18,12 +18,12 @@
                         <table class="table table-striped table-hover" id="companyGoalsTable" style="width:100%">
                             <thead>
                                 <tr>
-                                    <th>عنوان الهدف (عربي)</th>
-                                    <th>عنوان الهدف (إنجليزي)</th>
-                                    <th>الوصف (عربي)</th>
-                                    <th>الوصف (إنجليزي)</th>
-                                    <th>تاريخ الإنشاء</th>
-                                    <th>الإجراءات</th>
+                                    <th>{{ __('company-goals.title') }}</th>
+                                    <th>{{ __('company-goals.title_en') }}</th>
+                                    <th>{{ __('company-goals.description') }}</th>
+                                    <th>{{ __('company-goals.description_en') }}</th>
+                                    <th>{{ __('company-goals.created_at') }}</th>
+                                    <th>{{ __('company-goals.actions') }}</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -38,33 +38,33 @@
                         <form id="companyGoalForm">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title" id="companyGoalModalLabel">إضافة هدف</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="إغلاق">
+                                    <h5 class="modal-title" id="companyGoalModalLabel">{{ __('company-goals.add_company_goal') }}</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="{{ __('company-goals.close') }}">
                                         <span aria-hidden="true">&times;</span>
                                     </button>
                                 </div>
                                 <div class="modal-body">
                                     <input type="hidden" id="companyGoalId" name="companyGoalId" value="">
                                     <div class="form-group">
-                                        <label for="title">عنوان الهدف (عربي)</label>
+                                        <label for="title">{{ __('company-goals.title') }}</label>
                                         <input type="text" class="form-control" id="title" name="title" required>
                                     </div>
                                     <div class="form-group">
-                                        <label for="title_en">عنوان الهدف (إنجليزي)</label>
+                                        <label for="title_en">{{ __('company-goals.title_en') }}</label>
                                         <input type="text" class="form-control" id="title_en" name="title_en" required>
                                     </div>
                                     <div class="form-group">
-                                        <label for="description">الوصف (عربي)</label>
+                                        <label for="description">{{ __('company-goals.description') }}</label>
                                         <textarea class="form-control" id="description" name="description" rows="3"></textarea>
                                     </div>
                                     <div class="form-group">
-                                        <label for="description_en">الوصف (إنجليزي)</label>
+                                        <label for="description_en">{{ __('company-goals.description_en') }}</label>
                                         <textarea class="form-control" id="description_en" name="description_en" rows="3"></textarea>
                                     </div>
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">إلغاء</button>
-                                    <button type="submit" class="btn btn-primary">حفظ</button>
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">{{ __('company-goals.cancel') }}</button>
+                                    <button type="submit" class="btn btn-primary">{{ __('company-goals.save') }}</button>
                                 </div>
                             </div>
                         </form>
@@ -84,6 +84,17 @@
 @push('scripts')
 <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
 <script>
+var companyGoalsLang = {
+    add_company_goal: '{{ __('company-goals.add_company_goal') }}',
+    edit_company_goal: '{{ __('company-goals.edit_company_goal') }}',
+    success: '{{ __('company-goals.success') }}',
+    error: '{{ __('company-goals.error') }}',
+    an_error_occurred: '{{ __('company-goals.an_error_occurred') }}',
+    confirm_delete_company_goal: '{{ __('company-goals.confirm_delete_company_goal') }}',
+    yes_delete: '{{ __('company-goals.yes_delete') }}',
+    cancel: '{{ __('company-goals.cancel') }}'
+};
+
 $(document).ready(function() {
     var table = $('#companyGoalsTable').DataTable({
         processing: true,
@@ -106,7 +117,7 @@ $(document).ready(function() {
     $('#btnAddCompanyGoal').click(function() {
         $('#companyGoalForm')[0].reset();
         $('#companyGoalId').val('');
-        $('#companyGoalModalLabel').text('إضافة هدف');
+        $('#companyGoalModalLabel').text(companyGoalsLang.add_company_goal);
         $('#companyGoalModal').modal('show');
     });
 
@@ -121,7 +132,7 @@ $(document).ready(function() {
         $('#title_en').val(rowData.title_en);
         $('#description').val(rowData.description);
         $('#description_en').val(rowData.description_en);
-        $('#companyGoalModalLabel').text('تعديل هدف');
+        $('#companyGoalModalLabel').text(companyGoalsLang.edit_company_goal);
         $('#companyGoalModal').modal('show');
     });
 
@@ -147,7 +158,7 @@ $(document).ready(function() {
             success: function(response) {
                 Swal.fire({
                     icon: 'success',
-                    title: 'نجاح',
+                    title: companyGoalsLang.success,
                     text: response.message,
                 }).then(() => {
                     table.ajax.reload(null, false);
@@ -155,13 +166,13 @@ $(document).ready(function() {
                 });
             },
             error: function(xhr) {
-                var errorMessage = 'حدث خطأ';
+                var errorMessage = companyGoalsLang.an_error_occurred;
                 if (xhr.responseJSON && xhr.responseJSON.message) {
                     errorMessage = xhr.responseJSON.message;
                 }
                 Swal.fire({
                     icon: 'error',
-                    title: 'خطأ',
+                    title: companyGoalsLang.error,
                     text: errorMessage,
                 });
             }
@@ -173,11 +184,11 @@ $(document).ready(function() {
         var companyGoalId = $(this).data('company-goal-id');
 
         Swal.fire({
-            title: 'هل أنت متأكد من حذف الهدف؟',
+            title: companyGoalsLang.confirm_delete_company_goal,
             icon: 'warning',
             showCancelButton: true,
-            confirmButtonText: 'نعم، احذف',
-            cancelButtonText: 'إلغاء',
+            confirmButtonText: companyGoalsLang.yes_delete,
+            cancelButtonText: companyGoalsLang.cancel,
         }).then((result) => {
             if (result.isConfirmed) {
                 $.ajax({
@@ -186,19 +197,19 @@ $(document).ready(function() {
                     success: function(response) {
                         Swal.fire({
                             icon: 'success',
-                            title: 'نجاح',
+                            title: companyGoalsLang.success,
                             text: response.message,
                         });
                         table.ajax.reload(null, false);
                     },
                     error: function(xhr) {
-                        var errorMessage = 'حدث خطأ';
+                        var errorMessage = companyGoalsLang.an_error_occurred;
                         if (xhr.responseJSON && xhr.responseJSON.message) {
                             errorMessage = xhr.responseJSON.message;
                         }
                         Swal.fire({
                             icon: 'error',
-                            title: 'خطأ',
+                            title: companyGoalsLang.error,
                             text: errorMessage,
                         });
                     }

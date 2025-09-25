@@ -56,4 +56,21 @@ return [
     'delete_warning' => 'سيتم حذف جميع البيانات المتعلقة بهذا العميل',
     'email_exists' => 'البريد الإلكتروني موجود بالفعل',
     'phone_exists' => 'رقم الهاتف موجود بالفعل',
+    'customer_creation_error' => 'حدث خطأ أثناء إضافة العميل',
+    'customer_update_error' => 'حدث خطأ أثناء تحديث العميل',
+    'customer_deletion_error' => 'حدث خطأ أثناء حذف العميل',
+
+    // UI Strings
+    'customer_name' => 'اسم العميل',
+    'phone_number' => 'رقم الهاتف',
+    'email_optional' => 'البريد الإلكتروني (اختياري)',
+    'company_optional' => 'اسم الشركة (اختياري)',
+    'address' => 'العنوان',
+    'close' => 'إغلاق',
+    'success' => 'نجاح',
+    'error' => 'خطأ',
+    'an_error_occurred' => 'حدث خطأ',
+    'confirm_delete_customer' => 'هل أنت متأكد من حذف هذا العميل؟',
+    'yes_delete' => 'نعم، احذف',
+    'cancel' => 'إلغاء',
 ];

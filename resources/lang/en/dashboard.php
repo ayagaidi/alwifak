@@ -52,7 +52,7 @@ return [
     'invoices_description' => 'View and manage invoices and payments',
 
     // Currency
-    'currency' => 'SAR',
+    'currency' => 'LYD',
     'percentage' => '%',
 
     // Status Labels
@@ -63,7 +63,7 @@ return [
     'inactive' => 'Inactive',
 
     // Chart Labels
-    'revenue_label' => 'Revenue (SAR)',
+    'revenue_label' => 'Revenue (LYD)',
     'new_customers_label' => 'New Customers Count',
     'services_label' => 'Services',
     'invoice_status_label' => 'Invoice Status',

@@ -56,4 +56,21 @@ return [
     'delete_warning' => 'All data related to this customer will be deleted',
     'email_exists' => 'Email already exists',
     'phone_exists' => 'Phone number already exists',
+    'customer_creation_error' => 'Error occurred while adding customer',
+    'customer_update_error' => 'Error occurred while updating customer',
+    'customer_deletion_error' => 'Error occurred while deleting customer',
+
+    // UI Strings
+    'customer_name' => 'Customer Name',
+    'phone_number' => 'Phone Number',
+    'email_optional' => 'Email (Optional)',
+    'company_optional' => 'Company Name (Optional)',
+    'address' => 'Address',
+    'close' => 'Close',
+    'success' => 'Success',
+    'error' => 'Error',
+    'an_error_occurred' => 'An error occurred',
+    'confirm_delete_customer' => 'Are you sure you want to delete this customer?',
+    'yes_delete' => 'Yes, delete',
+    'cancel' => 'Cancel',
 ];

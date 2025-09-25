@@ -5,11 +5,11 @@
     <div class="container-fluid">
         <div class="row justify-content-center">
             <div class="col-12">
-                <h2 class="h5 page-title mb-4">إدارة الشهادات</h2>
+                <h2 class="h5 page-title mb-4">{{ __('testimonials.manage_testimonials') }}</h2>
 
                 <div class="mb-3">
                     <button id="btnAddTestimonial" class="btn btn-primary">
-                        إضافة شهادة جديدة
+                        {{ __('testimonials.add_new_testimonial') }}
                     </button>
                 </div>
 
@@ -37,7 +37,7 @@
                         <form id="testimonialForm">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title" id="testimonialModalLabel">إضافة شهادة جديدة</h5>
+                                <h5 class="modal-title" id="testimonialModalLabel">{{ __('testimonials.add_new_testimonial') }}</h5>
                                     <button type="button" class="close" data-dismiss="modal" aria-label="إغلاق">
                                         <span aria-hidden="true">&times;</span>
                                     </button>
@@ -122,7 +122,7 @@ $(document).ready(function() {
         $('#name').val(rowData.name);
         $('#message').val(rowData.message);
         $('#rating').val(rowData.rating);
-        $('#testimonialModalLabel').text('تعديل الشهادة');
+        $('#testimonialModalLabel').text('{{ __("testimonials.edit_testimonial") }}');
         $('#testimonialModal').modal('show');
     });
 
@@ -140,32 +140,32 @@ $(document).ready(function() {
             rating: $('#rating').val(),
         };
 
-        $.ajax({
-            url: url,
-            method: method,
-            data: data,
-            success: function(response) {
-                Swal.fire({
-                    icon: 'success',
-                    title: 'نجاح',
-                    text: response.message,
-                }).then(() => {
-                    table.ajax.reload(null, false);
-                    $('#testimonialModal').modal('hide');
+                $.ajax({
+                    url: url,
+                    method: method,
+                    data: data,
+                    success: function(response) {
+                        Swal.fire({
+                            icon: 'success',
+                            title: '{{ __("testimonials.success") }}',
+                            text: response.message,
+                        }).then(() => {
+                            table.ajax.reload(null, false);
+                            $('#testimonialModal').modal('hide');
+                        });
+                    },
+                    error: function(xhr) {
+                        var errorMessage = '{{ __("testimonials.an_error_occurred") }}';
+                        if (xhr.responseJSON && xhr.responseJSON.message) {
+                            errorMessage = xhr.responseJSON.message;
+                        }
+                        Swal.fire({
+                            icon: 'error',
+                            title: '{{ __("testimonials.error") }}',
+                            text: errorMessage,
+                        });
+                    }
                 });
-            },
-            error: function(xhr) {
-                var errorMessage = 'حدث خطأ';
-                if (xhr.responseJSON && xhr.responseJSON.message) {
-                    errorMessage = xhr.responseJSON.message;
-                }
-                Swal.fire({
-                    icon: 'error',
-                    title: 'خطأ',
-                    text: errorMessage,
-                });
-            }
-        });
     });
 
     // Delete testimonial
@@ -173,12 +173,12 @@ $(document).ready(function() {
         var testimonialId = $(this).data('testimonial-id');
 
         Swal.fire({
-            title: 'هل أنت متأكد من حذف هذه الشهادة؟',
-            text: "لا يمكن التراجع عن هذا الإجراء.",
+            title: '{{ __("testimonials.confirm_delete_testimonial") }}',
+            text: "{{ __('testimonials.delete_warning') }}",
             icon: 'warning',
             showCancelButton: true,
-            confirmButtonText: 'نعم، احذف',
-            cancelButtonText: 'إلغاء',
+            confirmButtonText: '{{ __("testimonials.yes_delete") }}',
+            cancelButtonText: '{{ __("testimonials.cancel") }}',
         }).then((result) => {
             if (result.isConfirmed) {
                 $.ajax({
@@ -187,19 +187,19 @@ $(document).ready(function() {
                     success: function(response) {
                         Swal.fire({
                             icon: 'success',
-                            title: 'نجاح',
+                            title: '{{ __("testimonials.success") }}',
                             text: response.message,
                         });
                         table.ajax.reload(null, false);
                     },
                     error: function(xhr) {
-                        var errorMessage = 'حدث خطأ';
+                        var errorMessage = '{{ __("testimonials.an_error_occurred") }}';
                         if (xhr.responseJSON && xhr.responseJSON.message) {
                             errorMessage = xhr.responseJSON.message;
                         }
                         Swal.fire({
                             icon: 'error',
-                            title: 'خطأ',
+                            title: '{{ __("testimonials.error") }}',
                             text: errorMessage,
                         });
                     }

@@ -5,19 +5,19 @@
     <div class="container-fluid">
         <div class="row justify-content-center">
             <div class="col-12">
-                <h2 class="h5 page-title mb-4">إدارة بيانات الاتصال</h2>
+                <h2 class="h5 page-title mb-4">{{ __('contacts.contacts_management') }}</h2>
 
                 @if($contactExists)
                 <div class="alert alert-info" role="alert">
                     <i class="fe fe-info fe-16"></i>
-                    يمكنك إدارة بيانات الاتصال الخاصة بك من خلال تعديل السجل الموجود أدناه.
+                    {{ __('contacts.manage_contact_info') }}
                 </div>
                 @endif
 
                 <div class="mb-3">
                     @if(!$contactExists)
                     <button id="btnAddContact" class="btn btn-primary">
-                        إضافة بيانات اتصال جديدة
+                        {{ __('contacts.add_new_contact') }}
                     </button>
                     @endif
                 </div>
@@ -27,12 +27,12 @@
                         <table class="table table-striped table-hover" id="contactsTable" style="width:100%">
                             <thead>
                                 <tr>
-                                    <th>رقم الهاتف</th>
-                                    <th>البريد الإلكتروني</th>
-                                    <th>العنوان</th>
-                                    <th>روابط التواصل</th>
-                                    <th>تطبيقات المراسلة</th>
-                                    <th>الإجراءات</th>
+                                    <th>{{ __('contacts.phone_number') }}</th>
+                                    <th>{{ __('contacts.email') }}</th>
+                                    <th>{{ __('contacts.address') }}</th>
+                                    <th>{{ __('contacts.social_links') }}</th>
+                                    <th>{{ __('contacts.messaging_apps') }}</th>
+                                    <th>{{ __('contacts.actions') }}</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -49,69 +49,69 @@
                                 <div class="modal-header">
                                     <h5 class="modal-title" id="contactModalLabel">
                                         @if($contactExists)
-                                            تعديل بيانات الاتصال
+                                            {{ __('contacts.edit_contact') }}
                                         @else
-                                            إضافة بيانات اتصال
+                                            {{ __('contacts.add_contact') }}
                                         @endif
                                     </h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="إغلاق">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="{{ __('contacts.close') }}">
                                         <span aria-hidden="true">&times;</span>
                                     </button>
                                 </div>
                                 <div class="modal-body">
                                     <input type="hidden" id="contactId" name="contactId" value="">
                                     <div class="form-group">
-                                        <label for="phone">رقم الهاتف (اختياري)</label>
-                                        <input type="text" class="form-control" id="phone" name="phone" placeholder="مثال: +966501234567">
+                                        <label for="phone">{{ __('contacts.phone_optional') }}</label>
+                                        <input type="text" class="form-control" id="phone" name="phone" placeholder="{{ __('contacts.phone_example') }}">
                                     </div>
                                     <div class="form-group">
-                                        <label for="email">البريد الإلكتروني (اختياري)</label>
-                                        <input type="email" class="form-control" id="email" name="email" placeholder="مثال: info@company.com">
+                                        <label for="email">{{ __('contacts.email_optional') }}</label>
+                                        <input type="email" class="form-control" id="email" name="email" placeholder="{{ __('contacts.email_example') }}">
                                     </div>
                                     <div class="form-group">
-                                        <label for="address">العنوان (اختياري)</label>
-                                        <textarea class="form-control" id="address" name="address" rows="3" placeholder="العنوان الكامل"></textarea>
+                                        <label for="address">{{ __('contacts.address_optional') }}</label>
+                                        <textarea class="form-control" id="address" name="address" rows="3" placeholder="{{ __('contacts.address_placeholder') }}"></textarea>
                                     </div>
                                     <div class="form-group">
-                                        <label for="facebook_url">رابط فيسبوك (اختياري)</label>
-                                        <input type="url" class="form-control" id="facebook_url" name="facebook_url" placeholder="https://facebook.com/username">
+                                        <label for="facebook_url">{{ __('contacts.facebook_url_optional') }}</label>
+                                        <input type="url" class="form-control" id="facebook_url" name="facebook_url" placeholder="{{ __('contacts.facebook_placeholder') }}">
                                     </div>
                                     <div class="form-group">
-                                        <label for="twitter_url">رابط تويتر (اختياري)</label>
-                                        <input type="url" class="form-control" id="twitter_url" name="twitter_url" placeholder="https://twitter.com/username">
+                                        <label for="twitter_url">{{ __('contacts.twitter_url_optional') }}</label>
+                                        <input type="url" class="form-control" id="twitter_url" name="twitter_url" placeholder="{{ __('contacts.twitter_placeholder') }}">
                                     </div>
                                     <div class="form-group">
-                                        <label for="linkedin_url">رابط لينكد إن (اختياري)</label>
-                                        <input type="url" class="form-control" id="linkedin_url" name="linkedin_url" placeholder="https://linkedin.com/in/username">
+                                        <label for="linkedin_url">{{ __('contacts.linkedin_url_optional') }}</label>
+                                        <input type="url" class="form-control" id="linkedin_url" name="linkedin_url" placeholder="{{ __('contacts.linkedin_placeholder') }}">
                                     </div>
                                     <div class="form-group">
-                                        <label for="youtube_url">رابط يوتيوب (اختياري)</label>
-                                        <input type="url" class="form-control" id="youtube_url" name="youtube_url" placeholder="https://youtube.com/channel/username">
+                                        <label for="youtube_url">{{ __('contacts.youtube_url_optional') }}</label>
+                                        <input type="url" class="form-control" id="youtube_url" name="youtube_url" placeholder="{{ __('contacts.youtube_placeholder') }}">
                                     </div>
                                     <div class="form-group">
-                                        <label for="instagram_url">رابط إنستغرام (اختياري)</label>
-                                        <input type="url" class="form-control" id="instagram_url" name="instagram_url" placeholder="https://instagram.com/username">
+                                        <label for="instagram_url">{{ __('contacts.instagram_url_optional') }}</label>
+                                        <input type="url" class="form-control" id="instagram_url" name="instagram_url" placeholder="{{ __('contacts.instagram_placeholder') }}">
                                     </div>
                                     <div class="form-group">
-                                        <label for="website_url">رابط الموقع (اختياري)</label>
-                                        <input type="url" class="form-control" id="website_url" name="website_url" placeholder="https://website.com">
+                                        <label for="website_url">{{ __('contacts.website_url_optional') }}</label>
+                                        <input type="url" class="form-control" id="website_url" name="website_url" placeholder="{{ __('contacts.website_placeholder') }}">
                                     </div>
                                     <div class="form-group">
-                                        <label for="whatsapp">رقم الواتساب (اختياري)</label>
-                                        <input type="text" class="form-control" id="whatsapp" name="whatsapp" placeholder="مثال: +966501234567">
+                                        <label for="whatsapp">{{ __('contacts.whatsapp_optional') }}</label>
+                                        <input type="text" class="form-control" id="whatsapp" name="whatsapp" placeholder="{{ __('contacts.whatsapp_placeholder') }}">
                                     </div>
                                     <div class="form-group">
-                                        <label for="telegram">معرف التليجرام (اختياري)</label>
-                                        <input type="text" class="form-control" id="telegram" name="telegram" placeholder="مثال: @username">
+                                        <label for="telegram">{{ __('contacts.telegram_optional') }}</label>
+                                        <input type="text" class="form-control" id="telegram" name="telegram" placeholder="{{ __('contacts.telegram_placeholder') }}">
                                     </div>
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">إلغاء</button>
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">{{ __('contacts.cancel') }}</button>
                                     <button type="submit" class="btn btn-primary">
                                         @if($contactExists)
-                                            تحديث
+                                            {{ __('contacts.update') }}
                                         @else
-                                            حفظ
+                                            {{ __('contacts.save') }}
                                         @endif
                                     </button>
                                 </div>
@@ -156,7 +156,7 @@ $(document).ready(function() {
     $('#btnAddContact').click(function() {
         $('#contactForm')[0].reset();
         $('#contactId').val('');
-        $('#contactModalLabel').text('إضافة بيانات اتصال');
+        $('#contactModalLabel').text('{{ __("contacts.add_new_contact") }}');
         $('#contactModal').modal('show');
     });
 
@@ -188,7 +188,7 @@ $(document).ready(function() {
         $('#website_url').val(rowData.website_url);
         $('#whatsapp').val(rowData.whatsapp);
         $('#telegram').val(rowData.telegram);
-        $('#contactModalLabel').text('تعديل بيانات الاتصال');
+        $('#contactModalLabel').text('{{ __("contacts.edit_contact") }}');
         $('#contactModal').modal('show');
     });
 
@@ -221,7 +221,7 @@ $(document).ready(function() {
             success: function(response) {
                 Swal.fire({
                     icon: 'success',
-                    title: 'نجاح',
+                    title: '{{ __("contacts.success") }}',
                     text: response.message,
                 }).then(() => {
                     table.ajax.reload(null, false);
@@ -229,13 +229,13 @@ $(document).ready(function() {
                 });
             },
             error: function(xhr) {
-                var errorMessage = 'حدث خطأ';
+                var errorMessage = '{{ __("contacts.an_error_occurred") }}';
                 if (xhr.responseJSON && xhr.responseJSON.message) {
                     errorMessage = xhr.responseJSON.message;
                 }
                 Swal.fire({
                     icon: 'error',
-                    title: 'خطأ',
+                    title: '{{ __("contacts.error") }}',
                     text: errorMessage,
                 });
             }
@@ -247,11 +247,11 @@ $(document).ready(function() {
         var contactId = $(this).data('contact-id');
 
         Swal.fire({
-            title: 'هل أنت متأكد من حذف بيانات الاتصال؟',
+            title: '{{ __("contacts.confirm_delete_contact") }}',
             icon: 'warning',
             showCancelButton: true,
-            confirmButtonText: 'نعم، احذف',
-            cancelButtonText: 'إلغاء',
+            confirmButtonText: '{{ __("contacts.yes_delete") }}',
+            cancelButtonText: '{{ __("contacts.cancel") }}',
         }).then((result) => {
             if (result.isConfirmed) {
                 $.ajax({
@@ -260,19 +260,19 @@ $(document).ready(function() {
                     success: function(response) {
                         Swal.fire({
                             icon: 'success',
-                            title: 'نجاح',
+                            title: '{{ __("contacts.success") }}',
                             text: response.message,
                         });
                         table.ajax.reload(null, false);
                     },
                     error: function(xhr) {
-                        var errorMessage = 'حدث خطأ';
+                        var errorMessage = '{{ __("contacts.an_error_occurred") }}';
                         if (xhr.responseJSON && xhr.responseJSON.message) {
                             errorMessage = xhr.responseJSON.message;
                         }
                         Swal.fire({
                             icon: 'error',
-                            title: 'خطأ',
+                            title: '{{ __("contacts.error") }}',
                             text: errorMessage,
                         });
                     }

@@ -5,11 +5,11 @@
     <div class="container-fluid">
         <div class="row justify-content-center">
             <div class="col-12">
-                <h2 class="h5 page-title mb-4">إدارة الخدمات</h2>
+                <h2 class="h5 page-title mb-4">{{ __('services.services_management') }}</h2>
 
                 <div class="mb-3">
                     <button id="btnAddService" class="btn btn-primary">
-                        إضافة خدمة جديدة
+                        {{ __('services.add_new_service') }}
                     </button>
                 </div>
 
@@ -18,11 +18,11 @@
                         <table class="table table-striped table-hover" id="servicesTable" style="width:100%">
                             <thead>
                                 <tr>
-                                    <th>اسم الخدمة (عربي)</th>
-                                    <th>اسم الخدمة (إنجليزي)</th>
-                                    <th>وصف الخدمة (عربي)</th>
-                                    <th>وصف الخدمة (إنجليزي)</th>
-                                    <th>الإجراءات</th>
+                                    <th>{{ __('services.name_ar') }}</th>
+                                    <th>{{ __('services.name_en') }}</th>
+                                    <th>{{ __('services.description_ar') }}</th>
+                                    <th>{{ __('services.description_en') }}</th>
+                                    <th>{{ __('services.actions') }}</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -37,8 +37,8 @@
                         <form id="serviceForm">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title" id="serviceModalLabel">إضافة خدمة</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="إغلاق">
+                                    <h5 class="modal-title" id="serviceModalLabel">{{ __('services.add_service') }}</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="{{ __('services.close') }}">
                                         <span aria-hidden="true">&times;</span>
                                     </button>
                                 </div>
@@ -47,13 +47,13 @@
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label for="name_ar">اسم الخدمة (عربي)</label>
+                                                <label for="name_ar">{{ __('services.name_ar') }}</label>
                                                 <input type="text" class="form-control" id="name_ar" name="name_ar" required>
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label for="name_en">اسم الخدمة (إنجليزي)</label>
+                                                <label for="name_en">{{ __('services.name_en') }}</label>
                                                 <input type="text" class="form-control" id="name_en" name="name_en" required>
                                             </div>
                                         </div>
@@ -61,21 +61,21 @@
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label for="description_ar">وصف الخدمة (عربي)</label>
+                                                <label for="description_ar">{{ __('services.description_ar') }}</label>
                                                 <textarea class="form-control" id="description_ar" name="description_ar" rows="3"></textarea>
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label for="description_en">وصف الخدمة (إنجليزي)</label>
+                                                <label for="description_en">{{ __('services.description_en') }}</label>
                                                 <textarea class="form-control" id="description_en" name="description_en" rows="3"></textarea>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">إلغاء</button>
-                                    <button type="submit" class="btn btn-primary">حفظ</button>
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">{{ __('services.cancel') }}</button>
+                                    <button type="submit" class="btn btn-primary">{{ __('services.save') }}</button>
                                 </div>
                             </div>
                         </form>
@@ -95,6 +95,17 @@
 @push('scripts')
 <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
 <script>
+var servicesLang = {
+    add_service: '{{ __('services.add_service') }}',
+    edit_service: '{{ __('services.edit_service') }}',
+    success: '{{ __('services.success') }}',
+    error: '{{ __('services.error') }}',
+    an_error_occurred: '{{ __('services.an_error_occurred') }}',
+    confirm_delete_service: '{{ __('services.confirm_delete_service') }}',
+    yes_delete: '{{ __('services.yes_delete') }}',
+    cancel: '{{ __('services.cancel') }}'
+};
+
 $(document).ready(function() {
     var table = $('#servicesTable').DataTable({
         processing: true,
@@ -116,7 +127,7 @@ $(document).ready(function() {
     $('#btnAddService').click(function() {
         $('#serviceForm')[0].reset();
         $('#serviceId').val('');
-        $('#serviceModalLabel').text('إضافة خدمة');
+        $('#serviceModalLabel').text(servicesLang.add_service);
         $('#serviceModal').modal('show');
     });
 
@@ -131,7 +142,7 @@ $(document).ready(function() {
         $('#name_en').val(rowData.name_en);
         $('#description_ar').val(rowData.description_ar);
         $('#description_en').val(rowData.description_en);
-        $('#serviceModalLabel').text('تعديل خدمة');
+        $('#serviceModalLabel').text(servicesLang.edit_service);
         $('#serviceModal').modal('show');
     });
 

@@ -1,6 +1,7 @@
 @php
     $currentLocale = session('locale', config('app.locale', 'ar'));
     $isRtl = $currentLocale === 'ar';
+    \Illuminate\Support\Facades\App::setLocale($currentLocale);
 @endphp
 
 <!doctype html>
