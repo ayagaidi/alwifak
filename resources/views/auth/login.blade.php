@@ -5,7 +5,7 @@
     <form method="POST" action="{{ route('login') }}" class="col-lg-3 col-md-4 col-10 mx-auto text-center needs-validation" novalidate>
         @csrf
         <a class="navbar-brand mx-auto mt-2 flex-fill text-center" href="{{ url('/') }}">
-            <img src="{{ asset('logo.png') }}" alt="Logo" class="navbar-brand-img brand-md" style="max-height: 150px;">
+            <img src="{{ asset('logo.png') }}" alt="Logo" class="navbar-brand-img brand-md">
         </a>
         <h1 class="h6 mb-3">تسجيل الدخول</h1>
 
