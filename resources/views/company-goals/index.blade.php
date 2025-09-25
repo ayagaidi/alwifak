@@ -84,6 +84,8 @@
 @push('scripts')
 <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
 <script>
+var currentLocale = '{{ app()->getLocale() }}';
+
 var companyGoalsLang = {
     add_company_goal: '{{ __('company-goals.add_company_goal') }}',
     edit_company_goal: '{{ __('company-goals.edit_company_goal') }}',
@@ -108,9 +110,7 @@ $(document).ready(function() {
             { data: 'created_at', name: 'created_at' },
             { data: 'actions', name: 'actions', orderable: false, searchable: false }
         ],
-        language: {
-            url: 'ar.json'
-        }
+        language: currentLocale === 'ar' ? { url: 'ar.json' } : {}
     });
 
     // Open modal for adding company goal

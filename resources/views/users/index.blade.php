@@ -82,6 +82,8 @@
 @push('scripts')
 <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
 <script>
+var currentLocale = '{{ app()->getLocale() }}';
+
 $(document).ready(function() {
     var table = $('#usersTable').DataTable({
         processing: true,
@@ -93,9 +95,7 @@ $(document).ready(function() {
             { data: 'status', name: 'status', orderable: false, searchable: false },
             { data: 'actions', name: 'actions', orderable: false, searchable: false }
         ],
-        language: {
-            url: '{{ app()->getLocale() === "ar" ? "ar.json" : "en.json" }}'
-        }
+        language: currentLocale === 'ar' ? { url: 'ar.json' } : {}
     });
 
     // Open modal for adding user

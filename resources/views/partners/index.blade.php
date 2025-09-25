@@ -84,6 +84,8 @@
 @push('scripts')
 <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
 <script>
+var currentLocale = '{{ app()->getLocale() }}';
+
 var partnersLang = {
     add_partner: '{{ __("partners.add_partner") }}',
     edit_partner: '{{ __("partners.edit_partner") }}',
@@ -129,9 +131,7 @@ $(document).ready(function() {
             },
             { data: 'actions', name: 'actions', orderable: false, searchable: false }
         ],
-        language: {
-            url: 'ar.json'
-        }
+        language: currentLocale === 'ar' ? { url: 'ar.json' } : {}
     });
 
     // Open modal for adding partner

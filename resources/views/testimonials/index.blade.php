@@ -18,11 +18,11 @@
                         <table class="table table-striped table-hover" id="testimonialsTable" style="width:100%">
                             <thead>
                                 <tr>
-                                    <th>الاسم</th>
-                                    <th>الرسالة</th>
-                                    <th>التقييم</th>
-                                    <th>تاريخ الإنشاء</th>
-                                    <th>الإجراءات</th>
+                                    <th>{{ __('testimonials.name') }}</th>
+                                    <th>{{ __('testimonials.message') }}</th>
+                                    <th>{{ __('testimonials.rating') }}</th>
+                                    <th>{{ __('testimonials.created_at') }}</th>
+                                    <th>{{ __('testimonials.actions') }}</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -38,35 +38,35 @@
                             <div class="modal-content">
                                 <div class="modal-header">
                                 <h5 class="modal-title" id="testimonialModalLabel">{{ __('testimonials.add_new_testimonial') }}</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="إغلاق">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="{{ __('testimonials.close') }}">
                                         <span aria-hidden="true">&times;</span>
                                     </button>
                                 </div>
                                 <div class="modal-body">
                                     <input type="hidden" id="testimonialId" name="testimonialId" value="">
                                     <div class="form-group">
-                                        <label for="name">الاسم *</label>
-                                        <input type="text" class="form-control" id="name" name="name" placeholder="أدخل اسم العميل" required>
+                                        <label for="name">{{ __('testimonials.name_required') }}</label>
+                                        <input type="text" class="form-control" id="name" name="name" placeholder="{{ __('testimonials.enter_customer_name') }}" required>
                                     </div>
                                     <div class="form-group">
-                                        <label for="message">الرسالة *</label>
-                                        <textarea class="form-control" id="message" name="message" rows="4" placeholder="أدخل رسالة الشهادة" required></textarea>
+                                        <label for="message">{{ __('testimonials.message_required') }}</label>
+                                        <textarea class="form-control" id="message" name="message" rows="4" placeholder="{{ __('testimonials.enter_testimonial_message') }}" required></textarea>
                                     </div>
                                     <div class="form-group">
-                                        <label for="rating">التقييم *</label>
+                                        <label for="rating">{{ __('testimonials.rating_required') }}</label>
                                         <select class="form-control" id="rating" name="rating" required>
-                                            <option value="">اختر التقييم</option>
-                                            <option value="1">نجمة واحدة</option>
-                                            <option value="2">نجمتان</option>
-                                            <option value="3">ثلاث نجوم</option>
-                                            <option value="4">أربع نجوم</option>
-                                            <option value="5">خمس نجوم</option>
+                                            <option value="">{{ __('testimonials.choose_rating') }}</option>
+                                            <option value="1">{{ __('testimonials.one_star') }}</option>
+                                            <option value="2">{{ __('testimonials.two_stars') }}</option>
+                                            <option value="3">{{ __('testimonials.three_stars') }}</option>
+                                            <option value="4">{{ __('testimonials.four_stars') }}</option>
+                                            <option value="5">{{ __('testimonials.five_stars') }}</option>
                                         </select>
                                     </div>
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">إلغاء</button>
-                                    <button type="submit" class="btn btn-primary">حفظ الشهادة</button>
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">{{ __('testimonials.cancel') }}</button>
+                                    <button type="submit" class="btn btn-primary">{{ __('testimonials.save_testimonial') }}</button>
                                 </div>
                             </div>
                         </form>
@@ -87,6 +87,8 @@
 @push('scripts')
 <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
 <script>
+var currentLocale = '{{ app()->getLocale() }}';
+
 $(document).ready(function() {
     var table = $('#testimonialsTable').DataTable({
         processing: true,
@@ -99,16 +101,14 @@ $(document).ready(function() {
             { data: 'created_at', name: 'created_at' },
             { data: 'actions', name: 'actions', orderable: false, searchable: false }
         ],
-        language: {
-            url: '//cdn.datatables.net/plug-ins/1.13.4/i18n/ar.json'
-        }
+        language: currentLocale === 'ar' ? { url: 'ar.json' } : {}
     });
 
     // Open modal for adding testimonial
     $('#btnAddTestimonial').click(function() {
         $('#testimonialForm')[0].reset();
         $('#testimonialId').val('');
-        $('#testimonialModalLabel').text('إضافة شهادة جديدة');
+        $('#testimonialModalLabel').text('{{ __("testimonials.add_new_testimonial") }}');
         $('#testimonialModal').modal('show');
     });
 

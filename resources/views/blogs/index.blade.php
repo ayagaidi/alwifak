@@ -5,11 +5,11 @@
     <div class="container-fluid">
         <div class="row justify-content-center">
             <div class="col-12">
-                <h2 class="h5 page-title mb-4">إدارة المقالات</h2>
+                <h2 class="h5 page-title mb-4">@lang('blogs.blogs_management')</h2>
 
                 <div class="mb-3">
                     <button id="btnAddBlog" class="btn btn-primary">
-                        إضافة مقالة جديدة
+                        @lang('blogs.add_new_blog')
                     </button>
                 </div>
 
@@ -18,11 +18,11 @@
                         <table class="table table-striped table-hover" id="blogsTable" style="width:100%">
                             <thead>
                                 <tr>
-                                    <th>عنوان المقالة</th>
-                                    <th>الكاتب</th>
-                                    <th>الحالة</th>
-                                    <th>تاريخ النشر</th>
-                                    <th>الإجراءات</th>
+                                    <th>@lang('blogs.article_title')</th>
+                                    <th>@lang('blogs.author')</th>
+                                    <th>@lang('blogs.status')</th>
+                                    <th>@lang('blogs.publish_date')</th>
+                                    <th>@lang('blogs.actions')</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -37,8 +37,8 @@
                         <form id="blogForm" enctype="multipart/form-data">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title" id="blogModalLabel">إضافة مقالة</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="إغلاق">
+                                    <h5 class="modal-title" id="blogModalLabel">@lang('blogs.add_blog')</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="@lang('blogs.close')">
                                         <span aria-hidden="true">&times;</span>
                                     </button>
                                 </div>
@@ -48,21 +48,21 @@
                                     <!-- Arabic Section -->
                                     <div class="card mb-3">
                                         <div class="card-header bg-light">
-                                            <h6 class="mb-0">النسخة العربية</h6>
+                                            <h6 class="mb-0">@lang('blogs.arabic_version')</h6>
                                         </div>
                                         <div class="card-body">
                                             <div class="form-group">
-                                                <label for="title_ar">عنوان المقالة (عربي)</label>
+                                                <label for="title_ar">@lang('blogs.title_ar')</label>
                                                 <input type="text" class="form-control" id="title_ar" name="title_ar" required>
                                             </div>
                                             <div class="form-group">
-                                                <label for="content_ar">محتوى المقالة (عربي)</label>
+                                                <label for="content_ar">@lang('blogs.content_ar')</label>
                                                 <textarea class="form-control" id="content_ar" name="content_ar" rows="8" required></textarea>
                                             </div>
                                             <div class="form-group">
-                                                <label for="excerpt_ar">مقتطف المقالة (عربي) (اختياري)</label>
+                                                <label for="excerpt_ar">@lang('blogs.excerpt_ar')</label>
                                                 <textarea class="form-control" id="excerpt_ar" name="excerpt_ar" rows="3" maxlength="500"></textarea>
-                                                <small class="form-text text-muted">أقصى 500 حرف</small>
+                                                <small class="form-text text-muted">@lang('blogs.max_500_chars')</small>
                                             </div>
                                         </div>
                                     </div>
@@ -70,21 +70,21 @@
                                     <!-- English Section -->
                                     <div class="card mb-3">
                                         <div class="card-header bg-light">
-                                            <h6 class="mb-0">English Version</h6>
+                                            <h6 class="mb-0">@lang('blogs.english_version')</h6>
                                         </div>
                                         <div class="card-body">
                                             <div class="form-group">
-                                                <label for="title_en">Article Title (English)</label>
+                                                <label for="title_en">@lang('blogs.title_en')</label>
                                                 <input type="text" class="form-control" id="title_en" name="title_en" required>
                                             </div>
                                             <div class="form-group">
-                                                <label for="content_en">Article Content (English)</label>
+                                                <label for="content_en">@lang('blogs.content_en')</label>
                                                 <textarea class="form-control" id="content_en" name="content_en" rows="8" required></textarea>
                                             </div>
                                             <div class="form-group">
-                                                <label for="excerpt_en">Article Excerpt (English) (Optional)</label>
+                                                <label for="excerpt_en">@lang('blogs.excerpt_en')</label>
                                                 <textarea class="form-control" id="excerpt_en" name="excerpt_en" rows="3" maxlength="500"></textarea>
-                                                <small class="form-text text-muted">Maximum 500 characters</small>
+                                                <small class="form-text text-muted">@lang('blogs.max_500_chars')</small>
                                             </div>
                                         </div>
                                     </div>
@@ -92,18 +92,18 @@
                                     <!-- Status and Publishing -->
                                     <div class="card mb-3">
                                         <div class="card-header bg-light">
-                                            <h6 class="mb-0">حالة النشر</h6>
+                                            <h6 class="mb-0">@lang('blogs.publish_status')</h6>
                                         </div>
                                         <div class="card-body">
                                             <div class="form-group">
-                                                <label for="status">الحالة</label>
+                                                <label for="status">@lang('blogs.status')</label>
                                                 <select class="form-control" id="status" name="status" required>
-                                                    <option value="draft">مسودة</option>
-                                                    <option value="published">منشور</option>
+                                                    <option value="draft">@lang('blogs.draft')</option>
+                                                    <option value="published">@lang('blogs.published')</option>
                                                 </select>
                                             </div>
                                             <div class="form-group">
-                                                <label for="published_at">تاريخ النشر (اختياري)</label>
+                                                <label for="published_at">@lang('blogs.publish_date_optional')</label>
                                                 <input type="datetime-local" class="form-control" id="published_at" name="published_at">
                                             </div>
                                         </div>
@@ -112,23 +112,23 @@
                                     <!-- Image Upload -->
                                     <div class="card mb-3">
                                         <div class="card-header bg-light">
-                                            <h6 class="mb-0">صورة المقالة (اختياري)</h6>
+                                            <h6 class="mb-0">@lang('blogs.blog_image_optional')</h6>
                                         </div>
                                         <div class="card-body">
                                             <div class="form-group">
-                                                <label for="image">اختر صورة</label>
+                                                <label for="image">@lang('blogs.choose_image')</label>
                                                 <input type="file" class="form-control-file" id="image" name="image" accept="image/*">
-                                                <small class="form-text text-muted">الصيغ المدعومة: JPEG, PNG, JPG, GIF (أقصى 2MB)</small>
+                                                <small class="form-text text-muted">@lang('blogs.supported_formats')</small>
                                             </div>
                                             <div id="imagePreview" class="mt-2" style="display: none;">
-                                                <img id="previewImg" src="" alt="معاينة الصورة" style="max-width: 200px; max-height: 200px;" class="img-thumbnail">
+                                                <img id="previewImg" src="" alt="@lang('blogs.image_preview')" style="max-width: 200px; max-height: 200px;" class="img-thumbnail">
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">إلغاء</button>
-                                    <button type="submit" class="btn btn-primary">حفظ</button>
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">@lang('blogs.cancel')</button>
+                                    <button type="submit" class="btn btn-primary">@lang('blogs.save')</button>
                                 </div>
                             </div>
                         </form>
@@ -148,6 +148,8 @@
 @push('scripts')
 <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
 <script>
+var currentLocale = '{{ app()->getLocale() }}';
+
 $(document).ready(function() {
     var table = $('#blogsTable').DataTable({
         processing: true,
@@ -160,9 +162,7 @@ $(document).ready(function() {
             { data: 'published_at', name: 'published_at' },
             { data: 'actions', name: 'actions', orderable: false, searchable: false }
         ],
-        language: {
-            url: 'ar.json'
-        }
+        language: currentLocale === 'ar' ? { url: 'ar.json' } : {}
     });
 
     // Image preview functionality
@@ -184,7 +184,7 @@ $(document).ready(function() {
     $('#btnAddBlog').click(function() {
         $('#blogForm')[0].reset();
         $('#blogId').val('');
-        $('#blogModalLabel').text('إضافة مقالة');
+        $('#blogModalLabel').text('@lang('blogs.add_blog')');
         $('#imagePreview').hide();
         $('#blogModal').modal('show');
     });
@@ -204,7 +204,7 @@ $(document).ready(function() {
         $('#excerpt_en').val(rowData.excerpt_en);
         $('#status').val(rowData.status);
         $('#published_at').val(rowData.published_at_formatted);
-        $('#blogModalLabel').text('تعديل مقالة');
+        $('#blogModalLabel').text('@lang('blogs.edit_blog')');
         $('#imagePreview').hide();
         $('#blogModal').modal('show');
     });
@@ -228,7 +228,7 @@ $(document).ready(function() {
             success: function(response) {
                 Swal.fire({
                     icon: 'success',
-                    title: 'نجاح',
+                    title: '@lang('blogs.success')',
                     text: response.message,
                 }).then(() => {
                     table.ajax.reload(null, false);
@@ -236,13 +236,13 @@ $(document).ready(function() {
                 });
             },
             error: function(xhr) {
-                var errorMessage = 'حدث خطأ';
+                var errorMessage = '@lang('blogs.an_error_occurred')';
                 if (xhr.responseJSON && xhr.responseJSON.message) {
                     errorMessage = xhr.responseJSON.message;
                 }
                 Swal.fire({
                     icon: 'error',
-                    title: 'خطأ',
+                    title: '@lang('blogs.error')',
                     text: errorMessage,
                 });
             }
@@ -254,12 +254,12 @@ $(document).ready(function() {
         var blogId = $(this).data('blog-id');
 
         Swal.fire({
-            title: 'هل أنت متأكد من حذف المقالة؟',
-            text: 'سيتم حذف المقالة وجميع الملفات المرتبطة بها',
+            title: '@lang('blogs.confirm_delete_blog')',
+            text: '@lang('blogs.delete_blog_warning')',
             icon: 'warning',
             showCancelButton: true,
-            confirmButtonText: 'نعم، احذف',
-            cancelButtonText: 'إلغاء',
+            confirmButtonText: '@lang('blogs.yes_delete')',
+            cancelButtonText: '@lang('blogs.cancel')',
         }).then((result) => {
             if (result.isConfirmed) {
                 $.ajax({
@@ -268,19 +268,19 @@ $(document).ready(function() {
                     success: function(response) {
                         Swal.fire({
                             icon: 'success',
-                            title: 'نجاح',
+                            title: '@lang('blogs.success')',
                             text: response.message,
                         });
                         table.ajax.reload(null, false);
                     },
                     error: function(xhr) {
-                        var errorMessage = 'حدث خطأ';
+                        var errorMessage = '@lang('blogs.an_error_occurred')';
                         if (xhr.responseJSON && xhr.responseJSON.message) {
                             errorMessage = xhr.responseJSON.message;
                         }
                         Swal.fire({
                             icon: 'error',
-                            title: 'خطأ',
+                            title: '@lang('blogs.error')',
                             text: errorMessage,
                         });
                     }

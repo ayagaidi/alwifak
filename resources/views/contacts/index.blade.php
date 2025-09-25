@@ -134,6 +134,8 @@
 @push('scripts')
 <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
 <script>
+var currentLocale = '{{ app()->getLocale() }}';
+
 $(document).ready(function() {
     var table = $('#contactsTable').DataTable({
         processing: true,
@@ -147,9 +149,7 @@ $(document).ready(function() {
             { data: 'messaging', name: 'messaging', orderable: false, searchable: false },
             { data: 'actions', name: 'actions', orderable: false, searchable: false }
         ],
-        language: {
-            url: 'ar.json'
-        }
+        language: currentLocale === 'ar' ? { url: 'ar.json' } : {}
     });
 
     // Open modal for adding contact

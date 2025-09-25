@@ -95,6 +95,8 @@
 @push('scripts')
 <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
 <script>
+var currentLocale = '{{ app()->getLocale() }}';
+
 var servicesLang = {
     add_service: '{{ __('services.add_service') }}',
     edit_service: '{{ __('services.edit_service') }}',
@@ -118,9 +120,7 @@ $(document).ready(function() {
             { data: 'description_en', name: 'description_en' },
             { data: 'actions', name: 'actions', orderable: false, searchable: false }
         ],
-        language: {
-            url: 'ar.json'
-        }
+        language: currentLocale === 'ar' ? { url: 'ar.json' } : {}
     });
 
     // Open modal for adding service
