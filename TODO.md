@@ -15,3 +15,14 @@
 ## Followup
 - [ ] Test login page: Run `php artisan serve`, open in browser, verify form, localization, responsiveness
 - [ ] Check console for errors
+
+# TODO: Add Language Switcher to Front Layout
+
+## Completed
+- [x] Include language-switcher component in header-btn ul of resources/views/front/app.blade.php
+- [x] Add switchLanguage JavaScript function to handle POST request to /language/switch with CSRF token
+- [x] Pass current locale from session to component
+
+## Followup
+- [ ] Test language switcher: Run `php artisan serve`, open front page, click dropdown, switch languages, verify page reloads and locale changes
+- [ ] Check console for errors

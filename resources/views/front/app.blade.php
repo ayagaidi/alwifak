@@ -123,11 +123,8 @@
                     <div class="header-btn">
                         <ul class="list-unstyled mb-0">
                             <li>
-                                <div class="sign-btn">
-                                    <a href="{{ route('contact') }}">Live Chat</a>
-                                </div>
+                                <x-language-switcher :currentLocale="session('locale', config('app.locale', 'ar'))" />
                             </li>
-                           
                             <li>
                                 <div class="search-bar">
                                     <a href="#search">
@@ -375,6 +372,27 @@
         <script src="{{ asset('webflux/assets/js/shop.js') }}"></script>
         <script src="{{ asset('webflux/assets/js/remove-product.js') }}"></script>
         <script src="{{ asset('webflux/assets/js/quantity.js') }}"></script>
+
+        <script>
+            function switchLanguage(locale) {
+                fetch('{{ route("language.switch") }}', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                    },
+                    body: JSON.stringify({ locale: locale })
+                })
+                .then(response => {
+                    if (response.ok) {
+                        location.reload();
+                    } else {
+                        console.error('Failed to switch language');
+                    }
+                })
+                .catch(error => console.error('Error:', error));
+            }
+        </script>
 
         @stack('scripts')
     </div>
