@@ -7,7 +7,7 @@
             <div class="card-body p-4">
                 <div class="text-center mb-4">
                     <a class="navbar-brand mx-auto" href="{{ url('/') }}">
-                        <img src="{{ asset('logo.png') }}" alt="{{ __('auth.login') }} Logo" class="navbar-brand-img brand-md">
+                        <img src="{{ asset('logo.svg') }}" alt="{{ __('auth.login') }} Logo" class="navbar-brand-img brand-md">
                     </a>
                     <h1 class="h4 mb-3">{{ __('auth.login') }}</h1>
                 </div>

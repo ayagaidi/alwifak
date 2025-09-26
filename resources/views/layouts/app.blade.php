@@ -98,7 +98,7 @@
     <nav class="vertnav navbar navbar-light">
         <div class="w-100 mb-4 d-flex">
             <a class="navbar-brand mx-auto mt-2 flex-fill text-center" href="{{ url('/') }}">
-                <img src="{{ asset('logo.png') }}" alt="Logo" class="navbar-brand-img brand-sm" style="max-height: 40px;">
+                <img src="{{ asset('logo.svg') }}" alt="Logo" class="navbar-brand-img brand-sm" style="max-height: 40px;">
             </a>
         </div>
         <ul class="navbar-nav flex-fill w-100 mb-2">

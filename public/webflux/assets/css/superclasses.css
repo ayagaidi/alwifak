@@ -1,0 +1,346 @@
+/*  */
+
+
+/* .wrapper1545 {
+    max-width: 1545px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+} */
+
+.primary-button a,
+.primary-button button {
+    background-color: var(--black--family--color);
+    padding: 0;
+    min-width: 229px;
+    height: 50px;
+    text-align: center;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 50px;
+    width: 100%;
+    text-decoration: none;
+    color: var(--secondary--color);
+    cursor: pointer;
+    border: none;
+    border-radius: 100px;
+    position: relative;
+    padding-right: 30px;
+}
+
+.primary-button a:hover,
+.primary-button button:hover {
+    background-color: var(--accent--color);
+    color: var(--secondary--color);
+    transition: ease-in-out 0.6s;
+}
+
+.primary-button a i {
+    background-color: var(--secondary--color);
+    width: 38px;
+    height: 38px;
+    line-height: 38px;
+    border-radius: 100px;
+    position: absolute;
+    top: 6px;
+    right: 7px;
+    color: var(--black--family--color);
+}
+
+.primary-button a:hover i,
+.primary-button button:hover i {
+    background-color: var(--secondary--color);
+    color: var(--accent--color);
+    transition: ease-in-out 0.6s;
+}
+
+.secondary-button a,
+.secondary-button button {
+    background-color: var(--accent--color);
+    padding: 0;
+    min-width: 229px;
+    height: 50px;
+    text-align: center;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 50px;
+    width: 100%;
+    text-decoration: none;
+    color: var(--secondary--color);
+    cursor: pointer;
+    border-radius: 100px;
+    position: relative;
+    padding-right: 30px;
+}
+
+.secondary-button a:hover,
+.secondary-button button:hover {
+    background-color: var(--secondary--color);
+    color: var(--black--family--color);
+    transition: ease-in-out 0.6s;
+}
+
+.secondary-button a i,
+.secondary-button button i {
+    background-color: var(--secondary--color);
+    width: 38px;
+    height: 38px;
+    line-height: 38px;
+    border-radius: 100px;
+    position: absolute;
+    top: 6px;
+    right: 7px;
+    color: var(--accent--color);
+}
+
+.secondary-button a:hover i,
+.secondary-button button:hover i {
+    background-color: var(--black--family--color);
+    color: var(--secondary--color);
+    transition: ease-in-out 0.6s;
+}
+
+.elementary-button a,
+.elementary-button button {
+    background-color: var(--secondary--color);
+    padding: 0;
+    min-width: 229px;
+    height: 50px;
+    text-align: center;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 50px;
+    width: 100%;
+    text-decoration: none;
+    color: var(--black--family--color);
+    cursor: pointer;
+    border-radius: 100px;
+    position: relative;
+    padding-right: 30px;
+    border: none;
+}
+
+.elementary-button a:hover,
+.elementary-button button:hover {
+    background-color: var(--black--family--color);
+    color: var(--secondary--color);
+    transition: ease-in-out 0.6s;
+}
+
+.elementary-button a i {
+    background-color: var(--black--family--color);
+    width: 38px;
+    height: 38px;
+    line-height: 38px;
+    border-radius: 100px;
+    position: absolute;
+    top: 6px;
+    right: 7px;
+    color: var(--secondary--color);
+}
+
+.elementary-button a:hover i,
+.elementary-button button:hover i {
+    background-color: var(--secondary--color);
+    color: var(--black--family--color);
+    transition: ease-in-out 0.6s;
+}
+
+.primary-button a i,
+.secondary-button a i,
+.elementary-button a i,
+.primary-button button i,
+.secondary-button button i,
+.elementary-button button i {
+    font-size: 14px;
+}
+
+h1 {
+    font-size: 60px;
+    font-weight: 800;
+    line-height: 70px;
+    color: var(--secondary--color);
+    margin-bottom: 21px;
+}
+
+
+/* 
+h1.sub-heading-title {
+    font-size: 50px;
+    line-height: 60px;
+    font-weight: 800;
+    margin-bottom: 12px;
+    color: var(--secondary--color);
+} */
+
+h2 {
+    font-size: 40px;
+    font-weight: 800;
+    line-height: 50px;
+    color: var(--secondary--color);
+}
+
+h3 {
+    font-size: 30px;
+    font-weight: 600;
+    line-height: 40px;
+    color: var(--black--color);
+}
+
+h4 {
+    font-size: 24px;
+    line-height: 30px;
+    font-weight: 800;
+    color: var(--secondary--color);
+}
+
+h5 {
+    font-size: 20px;
+    line-height: 28px;
+    font-weight: 800;
+    color: var(--secondary--color);
+}
+
+h6 {
+    font-size: 18px;
+    line-height: 18px;
+    font-weight: 500;
+    color: var(--black--color);
+}
+
+.spacer {
+    float: left;
+    width: 100%;
+    height: 100px;
+}
+
+.text-size-16,
+.font-size-16 {
+    font-size: 16px;
+}
+
+.font-size-18 {
+    font-size: 18px;
+}
+
+.font-size-14 {
+    font-size: 14px;
+    line-height: 14px;
+}
+
+.font-size-12 {
+    font-size: 12px;
+    line-height: 12px;
+}
+
+.padding-top160 {
+    padding-top: 160px;
+}
+
+.padding-bottom160 {
+    padding-bottom: 160px;
+}
+
+.padding-top {
+    padding-top: 132px;
+}
+
+.padding-bottom {
+    padding-bottom: 132px;
+}
+
+.padding-top100 {
+    padding-top: 100px;
+}
+
+.padding-bottom100 {
+    padding-bottom: 100px;
+}
+
+.special-text {
+    color: var(--accent--color);
+    font-size: 18px;
+    line-height: 28px;
+    margin-bottom: 12px;
+    font-weight: 700;
+}
+
+.min-height-auto {
+    min-height: auto !important;
+}
+
+.font-weight-600 {
+    font-weight: 600;
+}
+
+.font-size-20 {
+    font-size: 20px;
+    line-height: 30px;
+}
+
+.gradient {
+    /* background: linear-gradient(to bottom, #d6f4ec 0%, #a770de 100%); */
+    /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#d6f4ec+0,a770de+73,a770de+100 */
+    background-image: linear-gradient(330deg, rgba(214, 244, 236, 30%) 0%, rgba(214, 244, 236, 30%) 40%, rgba(167, 112, 222, 30%) 100%);
+    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+}
+
+.z-index-1 {
+    z-index: 1;
+}
+
+.font-weight-500 {
+    font-weight: 500;
+}
+
+.background-fff {
+    background-color: var(--secondary--color) !important;
+}
+
+.background-050a11 {
+    background-color: var(--black--family--color);
+}
+
+.background-11151c {
+    background-color: #144e76;
+}
+
+.background-f4f5ff {
+    background-color: var(--bg--grey--color);
+}
+
+.black-family-text {
+    color: var(--black--family--color);
+}
+
+.black-text {
+    color: var(--black--color);
+}
+
+.aqua-text {
+    color: var(--primary--color);
+}
+
+.blue-text {
+    color: var(--accent--color);
+}
+
+.black-family-text {
+    color: var(--black--family--color);
+}
+
+.font-weight-800 {
+    font-weight: 800;
+}
+
+.outfit-font {
+    font-family: "Outfit", sans-serif;
+}
+
+.inter-font {
+    font-family: "Inter", serif;
+}
+
+.padding-bottom-xl {
+    padding-bottom: 488px;
+}

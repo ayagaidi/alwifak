@@ -15,9 +15,47 @@ Route::get('/dashboard', [DashboardController::class, 'index'])->middleware(['au
 // Language switch route
 Route::post('/language/switch', [LanguageController::class, 'switch'])->name('language.switch');
 
+// Front-end public routes
+Route::get('/', [\App\Http\Controllers\FrontController::class, 'index'])->name('home');
+Route::get('/about', [\App\Http\Controllers\FrontController::class, 'about'])->name('about');
+Route::get('/contact', [\App\Http\Controllers\FrontController::class, 'contact'])->name('contact');
+Route::get('/service', [\App\Http\Controllers\FrontController::class, 'services'])->name('service');
+Route::get('/blog', [\App\Http\Controllers\FrontController::class, 'blog'])->name('blog');
+Route::get('/single-blog', [\App\Http\Controllers\FrontController::class, 'singleBlog'])->name('single-blog');
+Route::get('/pricing', [\App\Http\Controllers\FrontController::class, 'pricing'])->name('pricing');
+Route::get('/project', [\App\Http\Controllers\FrontController::class, 'project'])->name('project');
+Route::get('/team', [\App\Http\Controllers\FrontController::class, 'team'])->name('team');
+Route::get('/testimonial', [\App\Http\Controllers\FrontController::class, 'testimonial'])->name('testimonial');
+Route::get('/cart', [\App\Http\Controllers\FrontController::class, 'cart'])->name('cart');
+Route::get('/checkout', [\App\Http\Controllers\FrontController::class, 'checkout'])->name('checkout');
+Route::get('/product-detail', [\App\Http\Controllers\FrontController::class, 'productDetail'])->name('product-detail');
+Route::get('/shop', [\App\Http\Controllers\FrontController::class, 'shop'])->name('shop');
+
+// Hosting pages
+Route::get('/domain', [\App\Http\Controllers\FrontController::class, 'domain'])->name('domain');
+Route::get('/reseller', [\App\Http\Controllers\FrontController::class, 'reseller'])->name('reseller');
+Route::get('/shared', [\App\Http\Controllers\FrontController::class, 'shared'])->name('shared');
+Route::get('/vps', [\App\Http\Controllers\FrontController::class, 'vps'])->name('vps');
+Route::get('/dedicated', [\App\Http\Controllers\FrontController::class, 'dedicated'])->name('dedicated');
+
+// Blog layout pages
+Route::get('/load-more', [\App\Http\Controllers\FrontController::class, 'loadMore'])->name('load-more');
+Route::get('/one-column', [\App\Http\Controllers\FrontController::class, 'oneColumn'])->name('one-column');
+Route::get('/two-column', [\App\Http\Controllers\FrontController::class, 'twoColumn'])->name('two-column');
+Route::get('/three-column', [\App\Http\Controllers\FrontController::class, 'threeColumn'])->name('three-column');
+Route::get('/three-colum-sidbar', [\App\Http\Controllers\FrontController::class, 'threeColumSidbar'])->name('three-colum-sidbar');
+Route::get('/four-column', [\App\Http\Controllers\FrontController::class, 'fourColumn'])->name('four-column');
+Route::get('/six-colum-full-wide', [\App\Http\Controllers\FrontController::class, 'sixColumFullWide'])->name('six-colum-full-wide');
+
+// Public search
+Route::get('/search', [\App\Http\Controllers\SearchController::class, 'index'])->name('search');
+
+// Newsletter subscription
+Route::post('/newsletter/subscribe', [\App\Http\Controllers\FrontController::class, 'newsletterSubscribe'])->name('newsletter.subscribe');
+
 Route::middleware('auth')->group(function () {
-    // Search route
-    Route::get('/search', [\App\Http\Controllers\SearchController::class, 'index'])->name('search.index');
+    // Authenticated search (if needed, or remove if public is sufficient)
+    // Route::get('/search', [\App\Http\Controllers\SearchController::class, 'index'])->name('search.index');
 
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
