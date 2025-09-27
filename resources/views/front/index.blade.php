@@ -1,30 +1,22 @@
 @extends('front.app')
 
-@section('title', 'Home 02')
+@section('title', 'Home')
 
 @section('content')
 <!-- BANNER SECTION -->
 <section class="float-left w-100 position-relative banner-con2 main-box">
-    <figure><img src="{{ asset('webflux/assets/images/home02/vector7.png') }}" alt="image" class="position-absolute objct1 z-index-1">
-    </figure>
-    <figure><img src="{{ asset('webflux/assets/images/home02/vector8.png') }}" alt="image" class="position-absolute objct2 z-index-1">
-    </figure>
+  
     <div class="container">
         <div class="row">
             <div class="col-lg-6 col-md-6">
                 <div class="banner-content">
                     <span class="d-inline-block aqua-text font-weight-normal inter-font"><i
-                        class="fa-solid fa-circle mr-1"></i> Best
-                        Agency 2024 <i class="fa-solid fa-circle ml-1"></i></span>
-                    <h1>Empowering
-                        Brands with Digital
-                        Excellence
+                        class="fa-solid fa-circle mr-1"></i> {{ trans('front.banner_best_agency') }} <i class="fa-solid fa-circle ml-1"></i></span>
+                    <h1>{{ trans('front.banner_empowering') }}
                     </h1>
-                    <p class="text-white">We craft cutting-edge digital experiences that elevate your brand, engage your
-                        audience, and drive
-                        results. </p>
+                    <p class="text-white">{{ trans('front.banner_description') }}</p>
                     <div class="primary-button d-inline-block">
-                        <a href="{{ route('contact') }}" class="d-inline-block">Let’s Work Together <i
+                        <a href="{{ route('contact') }}" class="d-inline-block">{{ trans('front.banner_button') }} <i
                             class="fa-solid fa-arrow-right ml-2"></i></a>
                     </div>
                     <ul class="list-unstyled position-relative banner-icons">
@@ -63,12 +55,9 @@
     <div class="row">
       <div class="col-lg-6 col-md-6">
         <div class="grow-img-con position-relative">
-          <figure><img src="{{ asset('webflux/assets/images/grow-busines-img.jpg') }}" alt="image" class="img-fluid busines-img">
+          <figure><img src="{{ asset('webflux/assets/images/grow-busines-img.png') }}" alt="image" class="img-fluid busines-img">
           </figure>
-          <img src="{{ asset('webflux/assets/images/smol-blue-box.jpg') }}" alt="image" class="img-fluid position-absolute small-blue-box">
-          <img src="{{ asset('webflux/assets/images/blue-box.jpg') }}" alt="image" class="img-fluid position-absolute blue-box">
-          <img src="{{ asset('webflux/assets/images/transparent-box.jpg') }}" alt="image"
-            class="img-fluid position-absolute transparent-box">
+  
           <!-- grow business img con -->
         </div>
         <!-- col -->
@@ -77,30 +66,23 @@
         <div class="grow-business-content-con">
           <figure><img src="{{ asset('webflux/assets/images/grow-logo.svg') }}" alt="icon" class="img-fluid grow-logo"></figure>
           <div class="heading-title-con mb-0">
-            <span class="d-block special-text blue-text inter-font font-weight-light">Grow Your Business </span>
-            <h2 class="black-family-text">Generate 100% Traffic <br>
-              On Your Website</h2>
-            <p class="">Quisquam est, qui dolorem ipsum quia dolor sit amet
-              adipisci velit, sed quia non numquam eius modi temp
-              labore et dolore magnam voluptatem. </p>
+            <span class="d-block special-text blue-text inter-font font-weight-light">{{ trans('front.grow_your_business') }}</span>
+            <h2 class="black-family-text">{{ trans('front.generate_traffic') }}</h2>
+            <p class="">{{ trans('front.grow_description') }}</p>
             <ul class="list-unstyled p-0">
               <li class="position-relative black-family-text outfit-font font-weight-bold"><i
-                  class="fa-solid fa-circle-check"></i>Advertising &
-                Marketing</li>
+                  class="fa-solid fa-circle-check"></i>{{ trans('front.advertising_marketing') }}</li>
               <li class="position-relative black-family-text outfit-font font-weight-bold"><i
-                  class="fa-solid fa-circle-check"></i> Web
-                Development
+                  class="fa-solid fa-circle-check"></i>{{ trans('front.web_development') }}
               </li>
               <li class="position-relative black-family-text outfit-font font-weight-bold"><i
-                  class="fa-solid fa-circle-check"></i>Mobile App
-                Development</li>
+                  class="fa-solid fa-circle-check"></i>{{ trans('front.mobile_app_development') }}</li>
               <li class="position-relative black-family-text outfit-font font-weight-bold mb-0"><i
-                  class="fa-solid fa-circle-check"></i>Search Engine
-                Optimization</li>
+                  class="fa-solid fa-circle-check"></i>{{ trans('front.search_engine_optimization') }}</li>
               <!-- listing -->
             </ul>
             <div class="secondary-button d-inline-block">
-              <a href="{{ route('contact') }}" class="d-inline-block">Get Started <i
+              <a href="{{ route('contact') }}" class="d-inline-block">{{ trans('front.get_started') }} <i
                   class="fa-solid fa-arrow-right ml-2"></i></a>
             </div>
             <!-- heading title con -->
@@ -121,21 +103,17 @@
   <figure><img src="{{ asset('webflux/assets/images/vector4.png') }}" alt="icon" class="img-fluid position-absolute vector4"></figure>
   <div class="container">
     <div class="heading-title-con text-center">
-      <span class="d-block special-text blue-text inter-font font-weight-light">WebFlux Services </span>
-      <h2 class="black-family-text">Transforming Ideas into Digital Success</h2>
-      <p class="mb-0">Our services are designed to help businesses of all sizes grow and succeed online. <br>
-        We provide a full range of digital solutions:</p>
+      <span class="d-block special-text blue-text inter-font font-weight-light">{{ trans('front.webflux_services') }}</span>
+      <h2 class="black-family-text">{{ trans('front.transforming_ideas') }}</h2>
+      <p class="mb-0">{{ trans('front.services_description') }}</p>
       <!-- heading title con -->
     </div>
     <div class="row">
       <div class="col-lg-3 col-md-6">
         <div class="services-box">
           <figure><img src="{{ asset('webflux/assets/images/services-icon1.png') }}" alt="icon" class="img-fluid"></figure>
-          <h4 class="">Digital <br>
-            Marketing</h4>
-          <p class="">Nostrum exercitationem
-            ullam corporis suscipit la
-            riosam aliruiea.</p>
+          <h4 class="">{{ trans('front.digital_marketing') }}</h4>
+          <p class="">{{ trans('front.service_description') }}</p>
           <a href="{{ route('service') }}"><i class="fa-solid fa-arrow-right"></i></a>
           <!-- services box -->
         </div>
@@ -144,10 +122,8 @@
       <div class="col-lg-3 col-md-6">
         <div class="services-box">
           <figure><img src="{{ asset('webflux/assets/images/services-icon2.png') }}" alt="icon" class="img-fluid"></figure>
-          <h4 class="">Product <br> Development </h4>
-          <p class="">Nostrum exercitationem
-            ullam corporis suscipit la
-            riosam aliruiea.</p>
+          <h4 class="">{{ trans('front.product_development') }}</h4>
+          <p class="">{{ trans('front.service_description') }}</p>
           <a href="{{ route('service') }}"><i class="fa-solid fa-arrow-right"></i></a>
           <!-- services box -->
         </div>
@@ -156,11 +132,8 @@
       <div class="col-lg-3 col-md-6">
         <div class="services-box">
           <figure><img src="{{ asset('webflux/assets/images/services-icon3.png') }}" alt="icon" class="img-fluid"></figure>
-          <h4 class="">Ui/Ux <br>
-            Designing</h4>
-          <p class="">Nostrum exercitationem
-            ullam corporis suscipit la
-            riosam aliruiea.</p>
+          <h4 class="">{{ trans('front.ui_ux_designing') }}</h4>
+          <p class="">{{ trans('front.service_description') }}</p>
           <a href="{{ route('service') }}"><i class="fa-solid fa-arrow-right"></i></a>
           <!-- services box -->
         </div>
@@ -169,11 +142,8 @@
       <div class="col-lg-3 col-md-6">
         <div class="services-box">
           <figure><img src="{{ asset('webflux/assets/images/services-icon4.png') }}" alt="icon" class="img-fluid"></figure>
-          <h4 class="">Data <br>
-            Analysis</h4>
-          <p class="">Nostrum exercitationem
-            ullam corporis suscipit la
-            riosam aliruiea.</p>
+          <h4 class="">{{ trans('front.data_analysis') }}</h4>
+          <p class="">{{ trans('front.service_description') }}</p>
           <a href="{{ route('service') }}"><i class="fa-solid fa-arrow-right"></i></a>
           <!-- services box -->
         </div>
@@ -183,7 +153,7 @@
     </div>
     <div class="float-left-w-100 text-center strt-project-con">
       <div class="secondary-button d-inline-block">
-        <a href="{{ route('contact') }}" class="d-inline-block">Start Your Project <i
+        <a href="{{ route('contact') }}" class="d-inline-block">{{ trans('front.start_your_project') }} <i
             class="fa-solid fa-arrow-right ml-2"></i></a>
       </div>
       <!-- start projct con -->
@@ -203,9 +173,8 @@
       <div class="col-lg-6 col-md-6">
         <div class="fun-facts-content">
           <div class="heading-title-con mb-0">
-            <span class="d-block special-text blue-text inter-font font-weight-normal">About Us </span>
-            <h2 class="black-family-text position-relative">We Are Team Of Passionate
-              Digital Experts</h2>
+            <span class="d-block special-text blue-text inter-font font-weight-normal">{{ trans('front.about_us') }}</span>
+            <h2 class="black-family-text position-relative">{{ trans('front.passionate_experts') }}</h2>
             <!-- heading title con -->
           </div>
           <div class="row fun-inner-row">
@@ -214,7 +183,7 @@
                 <figure><img src="{{ asset('webflux/assets/images/fun-fact-icon1.png') }}" alt="icon" class="img-fluid"></figure>
                 <span class="d-inline-block black-family-text counter font-weight-800 outfit-font">2975 </span> <sup
                   class="d-inline-block blue-text font-weight-800 outfit-font">+</sup>
-                <span class="span-text d-block inter-font">Business Ideas</span>
+                <span class="span-text d-block inter-font">{{ trans('front.business_ideas') }}</span>
                 <!-- fact box -->
               </div>
               <!-- col -->
@@ -224,7 +193,7 @@
                 <figure><img src="{{ asset('webflux/assets/images/fun-fact-icon2.png') }}" alt="icon" class="img-fluid"></figure>
                 <span class="d-inline-block black-family-text counter font-weight-800 outfit-font">3345 </span> <sup
                   class="d-inline-block blue-text font-weight-800 outfit-font">+</sup>
-                <span class="span-text d-block inter-font">Happy Customers</span>
+                <span class="span-text d-block inter-font">{{ trans('front.happy_customers') }}</span>
                 <!-- fact box -->
               </div>
               <!-- col -->
@@ -234,7 +203,7 @@
                 <figure><img src="{{ asset('webflux/assets/images/fun-fact-icon3.png') }}" alt="icon" class="img-fluid"></figure>
                 <span class="d-inline-block black-family-text counter font-weight-800 outfit-font">1050 </span> <sup
                   class="d-inline-block blue-text font-weight-800 outfit-font">+</sup>
-                <span class="span-text d-block inter-font">Media Posts</span>
+                <span class="span-text d-block inter-font">{{ trans('front.media_posts') }}</span>
                 <!-- fact box -->
               </div>
               <!-- col -->
@@ -244,7 +213,7 @@
                 <figure><img src="{{ asset('webflux/assets/images/fun-fact-icon4.png') }}" alt="icon" class="img-fluid"></figure>
                 <span class="d-inline-block black-family-text counter font-weight-800 outfit-font">7456 </span> <sup
                   class="d-inline-block blue-text font-weight-800 outfit-font">+</sup>
-                <span class="span-text d-block inter-font">Finished Projects</span>
+                <span class="span-text d-block inter-font">{{ trans('front.finished_projects') }}</span>
                 <!-- fact box -->
               </div>
               <!-- col -->
@@ -278,9 +247,8 @@
   <figure><img src="{{ asset('webflux/assets/images/vector5.png') }}" alt="icon" class="img-fluid position-absolute vector5"></figure>
   <div class="container">
     <div class="heading-title-con text-center">
-      <span class="d-block special-text text-white inter-font font-weight-light">Our Proven Process for Success
-      </span>
-      <h2 class="text-white mb-0">We Focus on Marketing and Innovation</h2>
+      <span class="d-block special-text text-white inter-font font-weight-light">{{ trans('front.proven_process') }}</span>
+      <h2 class="text-white mb-0">{{ trans('front.focus_marketing_innovation') }}</h2>
       <!-- heading title con -->
     </div>
     <div class="row">
@@ -288,9 +256,8 @@
         <div class="step-box">
           <span class="d-block step-count text-white inter-font">01</span>
           <figure><img src="{{ asset('webflux/assets/images/step-icon1.png') }}" alt="icon" class="img-fluid"></figure>
-          <h4>Concept</h4>
-          <p class="mb-0">Aaque ipsa quae ab illo
-            inventeg teritatis.</p>
+          <h4>{{ trans('front.concept') }}</h4>
+          <p class="mb-0">{{ trans('front.step_description') }}</p>
           <!-- step box -->
         </div>
         <!-- col -->
@@ -299,9 +266,8 @@
         <div class="step-box">
           <span class="d-block step-count text-white inter-font">02</span>
           <figure><img src="{{ asset('webflux/assets/images/step-icon2.png') }}" alt="icon" class="img-fluid"></figure>
-          <h4>Budget</h4>
-          <p class="mb-0">Aaque ipsa quae ab illo
-            inventeg teritatis.</p>
+          <h4>{{ trans('front.budget') }}</h4>
+          <p class="mb-0">{{ trans('front.step_description') }}</p>
           <!-- step box -->
         </div>
         <!-- col -->
@@ -310,9 +276,8 @@
         <div class="step-box">
           <span class="d-block step-count text-white inter-font">03</span>
           <figure><img src="{{ asset('webflux/assets/images/step-icon3.png') }}" alt="icon" class="img-fluid"></figure>
-          <h4>Development</h4>
-          <p class="mb-0">Aaque ipsa quae ab illo
-            inventeg teritatis.</p>
+          <h4>{{ trans('front.development') }}</h4>
+          <p class="mb-0">{{ trans('front.step_description') }}</p>
           <!-- step box -->
         </div>
         <!-- col -->
@@ -321,9 +286,8 @@
         <div class="step-box">
           <span class="d-block step-count text-white inter-font">04</span>
           <figure><img src="{{ asset('webflux/assets/images/step-icon4.png') }}" alt="icon" class="img-fluid"></figure>
-          <h4>Result</h4>
-          <p class="mb-0">Aaque ipsa quae ab illo
-            inventeg teritatis.</p>
+          <h4>{{ trans('front.result') }}</h4>
+          <p class="mb-0">{{ trans('front.step_description') }}</p>
           <!-- step box -->
         </div>
         <!-- col -->
@@ -335,101 +299,7 @@
   <!-- services step con -->
 </section>
 
-<!-- PRICING PLANS SECTION -->
-<section
-  class="float-left w-100 position-relative pricing-plan-con padding-top padding-bottom main-box background-f4f5ff text-center pricing2-con" >
-  <figure><img src="{{ asset('webflux/assets/images/vector3.png') }}" alt="vector" class="img-fluid position-absolute vector3"></figure>
-  <div class="container wow fadeInUp" data-wow-duration="2s" data-wow-delay="0.3s">
-    <div class="heading-title-con">
-      <span class="d-block special-text blue-text inter-font font-weight-normal">Best Offers</span>
-      <h2 class="black-family-text">Choose Our Pricing Plans</h2>
-      <p class="mb-0">Dursus mal suada faci lisis lorem ipsum dolarorit more ame ion consectetur elit vesti at bulum
-        <br>
-        necodio aea the dumm recreo that dolocons.</p>
-      <!-- heading title con -->
-    </div>
-    <div class="row">
-      <div class="col-lg-4 col-md-6">
-        <div class="price-box">
-          <figure><img src="{{ asset('webflux/assets/images/price-icon4.png') }}" alt="icon" class="img-fluid"></figure>
-          <h4>Basic Plan
-          </h4>
-          <div class="price aqua-text font-weight-bold outfit-font">
-            <span class="d-inline-block aqua-text font-weight-normal dollar">$</span>
-            11.88<span class="d-inline-block aqua-text font-weight-normal per-month">/Mo</span>
-            <!-- price -->
-          </div>
-          <ul class="list-unstyled p-0">
-            <li><i class="fa-solid fa-circle-check"></i> Ad Management</li>
-            <li><i class="fa-solid fa-circle-check"></i> Live Chat</li>
-            <li><i class="fa-solid fa-circle-check"></i> Multi-Language Content</li>
-            <li><i class="fa-solid fa-circle-check"></i> Conversational Bots</li>
-            <li><i class="fa-solid fa-circle-check"></i> Programmable Chatbots</li>
-            <!--  -->
-          </ul>
-          <div class="secondary-button d-inline-block">
-            <a href="{{ route('contact') }}" class="d-inline-block">Get Started <i class="fa-solid fa-arrow-right ml-2"></i></a>
-          </div>
-          <!-- price box -->
-        </div>
-        <!-- col -->
-      </div>
-      <div class="col-lg-4 col-md-6">
-        <div class="price-box">
-          <figure><img src="{{ asset('webflux/assets/images/price-icon5.png') }}" alt="icon" class="img-fluid"></figure>
-          <h4>Visual Design
-          </h4>
-          <div class="price aqua-text font-weight-bold outfit-font">
-            <span class="d-inline-block aqua-text font-weight-normal dollar">$</span>
-            13.75<span class="d-inline-block aqua-text font-weight-normal per-month">/Mo</span>
-            <!-- price -->
-          </div>
-          <ul class="list-unstyled p-0">
-            <li><i class="fa-solid fa-circle-check"></i> Ad Management</li>
-            <li><i class="fa-solid fa-circle-check"></i> Live Chat</li>
-            <li><i class="fa-solid fa-circle-check"></i> Multi-Language Content</li>
-            <li><i class="fa-solid fa-circle-check"></i> Conversational Bots</li>
-            <li><i class="fa-solid fa-circle-check"></i> Programmable Chatbots</li>
-            <!--  -->
-          </ul>
-          <div class="secondary-button d-inline-block">
-            <a href="{{ route('contact') }}" class="d-inline-block">Get Started <i class="fa-solid fa-arrow-right ml-2"></i></a>
-          </div>
-          <!-- price box -->
-        </div>
-        <!-- col -->
-      </div>
-      <div class="col-lg-4 col-md-6">
-        <div class="price-box">
-          <figure><img src="{{ asset('webflux/assets/images/price-icon6.png') }}" alt="icon" class="img-fluid"></figure>
-          <h4>Development
-          </h4>
-          <div class="price aqua-text font-weight-bold outfit">
-            <span class="d-inline-block aqua-text font-weight-normal dollar">$</span>
-            19.99<span class="d-inline-block aqua-text font-weight-normal per-month">/Mo</span>
-            <!-- price -->
-          </div>
-          <ul class="list-unstyled p-0">
-            <li><i class="fa-solid fa-circle-check"></i> Ad Management</li>
-            <li><i class="fa-solid fa-circle-check"></i> Live Chat</li>
-            <li><i class="fa-solid fa-circle-check"></i> Multi-Language Content</li>
-            <li><i class="fa-solid fa-circle-check"></i> Conversational Bots</li>
-            <li><i class="fa-solid fa-circle-check"></i> Programmable Chatbots</li>
-            <!--  -->
-          </ul>
-          <div class="secondary-button d-inline-block">
-            <a href="{{ route('contact') }}" class="d-inline-block">Get Started <i class="fa-solid fa-arrow-right ml-2"></i></a>
-          </div>
-          <!-- price box -->
-        </div>
-        <!-- col -->
-      </div>
-      <!-- row -->
-    </div>
-    <!-- container -->
-  </div>
-  <!-- pricing plan con -->
-</section>
+
 
 <!-- PROJECT TESTIMONIALS SECTION -->
 <section class="float-left w-100 position-relative padding-top padding-bottom main-box project-testimonial-con">
@@ -456,13 +326,9 @@
           <div class="item">
             <div class="project-testimonial-content-con">
               <div class="heading-title-con mb-0">
-                <span class="d-block special-text blue-text inter-font font-weight-light">Testimonials </span>
-                <h2 class="black-family-text">What Our Customers <br>
-                  Have to Say</h2>
-                <p class="">Nemo enim ipsam voluptatem quia voluptas sit asperna aut odit
-                  fugit, sed quia consequuntur magni dolores eos qui ratione volu
-                  sequi nesciuntporro quisuam est, rui dolorem ipsum quia dolor
-                  consectetur adieisci velit sed ruia.</p>
+                <span class="d-block special-text blue-text inter-font font-weight-light">{{ trans('front.testimonials') }}</span>
+                <h2 class="black-family-text">{{ trans('front.customers_say') }}</h2>
+                <p class="">{{ trans('front.testimonial_description') }}</p>
                 <!-- heading title con -->
               </div>
               <div class="review-content d-flex align-items-center">
@@ -470,8 +336,8 @@
                   <img src="{{ asset('webflux/assets/images/project-quote-icon.png') }}" alt="image" class="">
                 </figure>
                 <div class="detail">
-                  <span class="name">Kevin James</span>
-                  <span class="position">Happy Client</span>
+                  <span class="name">{{ trans('front.kevin_james') }}</span>
+                  <span class="position">{{ trans('front.happy_client') }}</span>
                   <!-- detail -->
                 </div>
                 <!-- review content -->
@@ -483,13 +349,9 @@
           <div class="item">
             <div class="project-testimonial-content-con">
               <div class="heading-title-con mb-0">
-                <span class="d-block special-text blue-text inter-font font-weight-light">Testimonials </span>
-                <h2 class="black-family-text">What Our Customers <br>
-                  Have to Say</h2>
-                <p class="">Nemo enim ipsam voluptatem quia voluptas sit asperna aut odit
-                  fugit, sed quia consequuntur magni dolores eos qui ratione volu
-                  sequi nesciuntporro quisuam est, rui dolorem ipsum quia dolor
-                  consectetur adieisci velit sed ruia.</p>
+                <span class="d-block special-text blue-text inter-font font-weight-light">{{ trans('front.testimonials') }}</span>
+                <h2 class="black-family-text">{{ trans('front.customers_say') }}</h2>
+                <p class="">{{ trans('front.testimonial_description') }}</p>
                 <!-- heading title con -->
               </div>
               <div class="review-content d-flex align-items-center">
@@ -497,8 +359,8 @@
                   <img src="{{ asset('webflux/assets/images/project-quote-icon.png') }}" alt="image" class="">
                 </figure>
                 <div class="detail">
-                  <span class="name">Kevin James</span>
-                  <span class="position">Happy Client</span>
+                  <span class="name">{{ trans('front.kevin_james') }}</span>
+                  <span class="position">{{ trans('front.happy_client') }}</span>
                   <!-- detail -->
                 </div>
                 <!-- review content -->
@@ -523,10 +385,9 @@
   class="float-left w-100 position-relative padding-top padding-bottom news-and-articles-con main-box background-f4f5ff projects-news-articles-con">
   <div class="container">
     <div class="heading-title-con text-center">
-      <span class="d-block special-text blue-text inter-font font-weight-light">News and Articles </span>
-      <h2 class="black-family-text">Our Latest Blog Posts</h2>
-      <p class="mb-0">Grursus mal suada faci lisis lorem ipsum dolarorit more ame ion consectetur elit vesti at <br>
-        odio aea the dumm recreo that dolocons.</p>
+      <span class="d-block special-text blue-text inter-font font-weight-light">{{ trans('front.news_articles') }}</span>
+      <h2 class="black-family-text">{{ trans('front.latest_blog_posts') }}</h2>
+      <p class="mb-0">{{ trans('front.news_description') }}</p>
       <!-- heading title con -->
     </div>
     <div class="owl-carousel owl-theme">
@@ -537,18 +398,15 @@
             <div class="image_content">
               <div class="content">
                 <h3 class="text-white counter">18</h3>
-                <span class="text-white">March</span>
+                <span class="text-white">{{ trans('front.march') }}</span>
               </div>
             </div>
           </div>
           <div class="lower_portion_wrapper">
             <div class="lower_portion">
-               <a href="{{ route('single-blog') }}"><h4>Useful Tips From Experts
-                In Service.</h4></a>
-              <p class="text-size-18">Nostrum exercitationem aeullam
-                corporis suscipit labo riosam aliruiea
-                molestiae non recusandae...</p>
-              <a class="read_more text-decoration-none" href="{{ route('single-blog') }}">Read More
+               <a href="{{ route('single-blog') }}"><h4>{{ trans('front.useful_tips') }}</h4></a>
+              <p class="text-size-18">{{ trans('front.blog_description') }}</p>
+              <a class="read_more text-decoration-none" href="{{ route('single-blog') }}">{{ trans('front.read_more') }}
                 <figure class="arrow mb-0"><img src="{{ asset('webflux/assets/images/blog-arrow.png') }}" alt="" class="img-fluid">
                 </figure>
               </a>
@@ -563,18 +421,15 @@
             <div class="image_content">
               <div class="content">
                 <h3 class="text-white counter">26</h3>
-                <span class="text-white">April</span>
+                <span class="text-white">{{ trans('front.april') }}</span>
               </div>
             </div>
           </div>
           <div class="lower_portion_wrapper">
             <div class="lower_portion">
-              <a href="{{ route('single-blog') }}"><h4>How Will Service Be In
-                The Future.</h4></a>
-              <p class="text-size-18">Nostrum exercitationem aeullam
-                corporis suscipit labo riosam aliruiea
-                molestiae non recusandae...</p>
-              <a class="read_more text-decoration-none" href="{{ route('single-blog') }}">Read More
+              <a href="{{ route('single-blog') }}"><h4>{{ trans('front.service_future') }}</h4></a>
+              <p class="text-size-18">{{ trans('front.blog_description') }}</p>
+              <a class="read_more text-decoration-none" href="{{ route('single-blog') }}">{{ trans('front.read_more') }}
                 <figure class="arrow mb-0"><img src="{{ asset('webflux/assets/images/blog-arrow.png') }}" alt="" class="img-fluid">
                 </figure>
               </a>
@@ -589,18 +444,15 @@
             <div class="image_content">
               <div class="content">
                 <h3 class="text-white counter">09</h3>
-                <span class="text-white">June</span>
+                <span class="text-white">{{ trans('front.june') }}</span>
               </div>
             </div>
           </div>
           <div class="lower_portion_wrapper">
             <div class="lower_portion">
-              <a href="{{ route('single-blog') }}"><h4>How Service Can Ease
-                Your Pain.</h4></a>
-              <p class="text-size-18">Nostrum exercitationem aeullam
-                corporis suscipit labo riosam aliruiea
-                molestiae non recusandae...</p>
-              <a class="read_more text-decoration-none" href="{{ route('single-blog') }}">Read More
+              <a href="{{ route('single-blog') }}"><h4>{{ trans('front.ease_pain') }}</h4></a>
+              <p class="text-size-18">{{ trans('front.blog_description') }}</p>
+              <a class="read_more text-decoration-none" href="{{ route('single-blog') }}">{{ trans('front.read_more') }}
                 <figure class="arrow mb-0"><img src="{{ asset('webflux/assets/images/blog-arrow.png') }}" alt="" class="img-fluid">
                 </figure>
               </a>
@@ -616,18 +468,15 @@
             <div class="image_content">
               <div class="content">
                 <h3 class="text-white counter">18</h3>
-                <span class="text-white">March</span>
+                <span class="text-white">{{ trans('front.march') }}</span>
               </div>
             </div>
           </div>
           <div class="lower_portion_wrapper">
             <div class="lower_portion">
-               <a href="{{ route('single-blog') }}"><h4>Useful Tips From Experts
-                In Service.</h4></a>
-              <p class="text-size-18">Nostrum exercitationem aeullam
-                corporis suscipit labo riosam aliruiea
-                molestiae non recusandae...</p>
-              <a class="read_more text-decoration-none" href="{{ route('single-blog') }}">Read More
+               <a href="{{ route('single-blog') }}"><h4>{{ trans('front.useful_tips') }}</h4></a>
+              <p class="text-size-18">{{ trans('front.blog_description') }}</p>
+              <a class="read_more text-decoration-none" href="{{ route('single-blog') }}">{{ trans('front.read_more') }}
                 <figure class="arrow mb-0"><img src="{{ asset('webflux/assets/images/blog-arrow.png') }}" alt="" class="img-fluid">
                 </figure>
               </a>
@@ -642,18 +491,15 @@
             <div class="image_content">
               <div class="content">
                 <h3 class="text-white counter">26</h3>
-                <span class="text-white">April</span>
+                <span class="text-white">{{ trans('front.april') }}</span>
               </div>
             </div>
           </div>
           <div class="lower_portion_wrapper">
             <div class="lower_portion">
-              <a href="{{ route('single-blog') }}"><h4>How Will Service Be In
-                The Future.</h4></a>
-              <p class="text-size-18">Nostrum exercitationem aeullam
-                corporis suscipit labo riosam aliruiea
-                molestiae non recusandae...</p>
-              <a class="read_more text-decoration-none" href="{{ route('single-blog') }}">Read More
+              <a href="{{ route('single-blog') }}"><h4>{{ trans('front.service_future') }}</h4></a>
+              <p class="text-size-18">{{ trans('front.blog_description') }}</p>
+              <a class="read_more text-decoration-none" href="{{ route('single-blog') }}">{{ trans('front.read_more') }}
                 <figure class="arrow mb-0"><img src="{{ asset('webflux/assets/images/blog-arrow.png') }}" alt="" class="img-fluid">
                 </figure>
               </a>
@@ -668,18 +514,15 @@
             <div class="image_content">
               <div class="content">
                 <h3 class="text-white counter">09</h3>
-                <span class="text-white">June</span>
+                <span class="text-white">{{ trans('front.june') }}</span>
               </div>
             </div>
           </div>
           <div class="lower_portion_wrapper">
             <div class="lower_portion">
-              <a href="{{ route('single-blog') }}"><h4>How Service Can Ease
-                Your Pain.</h4></a>
-              <p class="text-size-18">Nostrum exercitationem aeullam
-                corporis suscipit labo riosam aliruiea
-                molestiae non recusandae...</p>
-              <a class="read_more text-decoration-none" href="{{ route('single-blog') }}">Read More
+              <a href="{{ route('single-blog') }}"><h4>{{ trans('front.ease_pain') }}</h4></a>
+              <p class="text-size-18">{{ trans('front.blog_description') }}</p>
+              <a class="read_more text-decoration-none" href="{{ route('single-blog') }}">{{ trans('front.read_more') }}
                 <figure class="arrow mb-0"><img src="{{ asset('webflux/assets/images/blog-arrow.png') }}" alt="" class="img-fluid">
                 </figure>
               </a>

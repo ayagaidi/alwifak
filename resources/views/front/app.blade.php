@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ session('locale', config('app.locale', 'ar')) }}" dir="{{ session('locale') == 'ar' ? 'rtl' : 'ltr' }}">
 
 <head>
     <title>{{ config('app.name', 'WebFlux') }} - @yield('title', 'Home')</title>
@@ -20,7 +20,11 @@
     <link rel="stylesheet" href="{{ asset('webflux/assets/css/superclasses.css') }}" type="text/css">
     <link rel="stylesheet" href="{{ asset('webflux/assets/css/owl.carousel.min.css') }}" type="text/css">
     <link rel="stylesheet" href="{{ asset('webflux/assets/css/owl.theme.default.min.css') }}" type="text/css">
+    @if(session('locale') == 'ar')
+    <link rel="stylesheet" href="{{ asset('rtl/assets/css/custom.css') }}" type="text/css">
+    @else
     <link rel="stylesheet" href="{{ asset('webflux/assets/css/custom.css') }}" type="text/css">
+    @endif
     <link rel="stylesheet" href="{{ asset('webflux/assets/css/shop.css') }}" type="text/css">
     <link rel="stylesheet" href="{{ asset('webflux/assets/css/responsive.css') }}" type="text/css">
 

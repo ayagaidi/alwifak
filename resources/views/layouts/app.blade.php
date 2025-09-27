@@ -57,9 +57,9 @@
     <button type="button" class="navbar-toggler text-muted mt-2 p-0 {{ $isRtl ? 'mr-3' : 'ml-3' }} collapseSidebar">
         <i class="fe fe-menu navbar-toggler-icon"></i>
     </button>
-    <form class="form-inline {{ $isRtl ? 'mr-auto' : 'ml-auto' }} searchform text-muted" action="{{ route('search.index') }}" method="GET">
+    {{-- <form class="form-inline {{ $isRtl ? 'mr-auto' : 'ml-auto' }} searchform text-muted" action="{{ route('search.index') }}" method="GET">
         <input class="form-control {{ $isRtl ? 'mr-sm-2' : 'ml-sm-2' }} bg-transparent border-0 {{ $isRtl ? 'pl-4' : 'pr-4' }} text-muted" type="search" name="q" placeholder="{{ __('dashboard.search_placeholder') }}" aria-label="Search">
-    </form>
+    </form> --}}
     <ul class="nav">
         <li class="nav-item">
             <a class="nav-link text-muted my-2" href="#" id="modeSwitcher" data-mode="light">
